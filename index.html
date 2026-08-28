@@ -41,6 +41,25 @@
         #main-header {
             transition: background-color 0.4s ease;
         }
+
+        .brands-track {
+            animation: scroll-brands 18s linear infinite;
+            width: max-content;
+        }
+
+            .brands-track:hover {
+                animation-play-state: paused;
+            }
+
+        @keyframes scroll-brands {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 <body class="bg-brand-dark text-white font-sans antialiased flex flex-col min-h-screen">
@@ -118,32 +137,51 @@
 
     <!-- SECCIÓN HERO -->
     <section id="inicio" class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden pt-16">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 filter brightness-40">
+
+        <!-- Vídeo de fondo -->
+        <video autoplay loop muted playsinline
+               class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 filter brightness-50">
             <source src="img/video/video-hero.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark z-10"></div>
+
+        <!-- Capa oscura para mejorar la legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-brand-dark/70 z-10"></div>
+
+        <!-- Contenido -->
         <div class="relative z-20 max-w-3xl">
+
             <div class="mb-6 flex flex-col items-center gap-3">
-                <img src="img/logo.png" alt="Xtream Garage Detailing"
+                <img src="img/logo.png"
+                     alt="Xtream Garage Detailing"
                      class="h-28 sm:h-40 md:h-48 w-auto object-contain drop-shadow-[0_0_30px_rgba(239,255,17,0.25)]">
-                <p class="text-xs tracking-widest text-gray-400 uppercase">Detailing Studio · Igualada</p>
+
+                <p class="text-xs tracking-widest text-gray-400 uppercase">
+                    Detailing Studio · Igualada
+                </p>
             </div>
 
             <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
-                Bienvenido a <br><span class="text-brand-yellow">Xtream Garage Detailing</span>
+                Bienvenido a <br>
+                <span class="text-brand-yellow">Xtream Garage Detailing</span>
             </h1>
+
             <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-xl mx-auto">
                 Pasión por la restauración y conservación estética de tu vehículo en Igualada, l'Anoia (Barcelona).
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#tintado" class="inline-block bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-lg">
+                <a href="#tintado"
+                   class="inline-block bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-lg">
                     Ver Servicios y Tarifas
                 </a>
-                <a href="./galeria.html" class="inline-flex items-center justify-center gap-2 bg-brand-gray hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl transition border border-white/10 transform hover:scale-105 shadow-lg">
-                    <i class="fa-solid fa-images text-brand-yellow"></i> Ver Galería de Fotos
+
+                <a href="./galeria.html"
+                   class="inline-flex items-center justify-center gap-2 bg-brand-gray hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl transition border border-white/10 transform hover:scale-105 shadow-lg">
+                    <i class="fa-solid fa-images text-brand-yellow"></i>
+                    Ver Galería de Fotos
                 </a>
             </div>
+
         </div>
     </section>
 
@@ -555,10 +593,21 @@
     </section>
 
     <!-- PRODUCTOS UTILIZADOS -->
-    <section class="py-12 bg-brand-dark border-y border-white/5 text-center">
-        <p class="text-xs uppercase tracking-widest text-gray-500 mb-6">Utilizamos productos de alta gama garantizados</p>
-        <div class="flex justify-center items-center gap-12 grayscale opacity-80 hover:opacity-100 transition">
-            <span class="text-lg font-bold tracking-wider text-white">ABO COSMETICA</span>
+    <section class="py-12 bg-brand-dark border-y border-white/5 text-center overflow-hidden">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-8">Trabajamos con productos de alta gama</p>
+        <div class="relative w-full overflow-hidden">
+            <div class="brands-track flex items-center gap-16">
+                <!-- Repite el bloque dos veces para el loop infinito -->
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <!-- Duplicado para loop -->
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+                <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition grayscale hover:grayscale-0">
+            </div>
         </div>
     </section>
 
@@ -677,9 +726,8 @@
     <footer id="contacto" class="bg-brand-card border-t border-white/10 pt-16 pb-8 px-4 mt-auto">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
-                <img src="img/logo.png" alt="Xtream Garage" class="h-10 w-auto object-contain mb-2">
+                <span class="text-2xl font-black uppercase tracking-wider">Xtream<span class="text-brand-yellow">Garage</span></span>
                 <p class="text-sm text-gray-400 mt-2 mb-6">Tu estudio de detailing en Igualada, l'Anoia (Catalunya).</p>
-
                 <div class="space-y-4 text-sm text-gray-300">
                     <p class="flex items-center gap-3">
                         <i class="fa-solid fa-location-dot text-brand-yellow text-lg"></i>
@@ -793,6 +841,15 @@
     </div>
 
     <!-- LÓGICA JS -->
+
+    <script>
+        const heroVideo = document.querySelector('#inicio video');
+
+        heroVideo.addEventListener('loadedmetadata', () => {
+            heroVideo.playbackRate = 0.8;
+        });
+    </script>
+
     <script>
         const openBtn = document.getElementById('open-sidebar');
         const closeBtn = document.getElementById('close-sidebar');
