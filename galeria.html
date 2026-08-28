@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Trabajos | Xtream Garage Detailing Igualada</title>
+    <meta name="description" content="Galería de fotos de nuestros trabajos de detailing, tintado de lunas, PPF y pulido en Igualada.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FACC15', 
+                            yellowDark: '#EAB308',
+                            dark: '#0B0B0B',
+                            card: '#141414',
+                            gray: '#1F1F1F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- HEADER / NAV -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-brand-dark/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-bold tracking-wider uppercase text-white">
+            Xtream<span class="text-brand-yellow">Garage</span>
+        </a>
+        <a href="index.html" class="bg-brand-gray hover:bg-white/10 text-white px-4 py-2 rounded-xl text-sm font-semibold transition border border-white/10 flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+        </a>
+    </header>
+
+    <!-- CABECERA GALERÍA -->
+    <section class="pt-32 pb-10 px-4 text-center max-w-4xl mx-auto">
+        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Nuestra Colección</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold uppercase mt-2 mb-4">Galería de Trabajos</h1>
+        <p class="text-gray-400 text-sm sm:text-base">Explora los resultados de nuestros procesos de restauración, protección y detallado automotriz en Igualada.</p>
+
+        <!-- FILTROS POR CATEGORÍA -->
+        <div class="flex flex-wrap justify-center gap-2 mt-8">
+            <button onclick="filterGallery('all', event)" class="filter-btn active bg-brand-yellow text-black font-bold px-4 py-2 rounded-xl text-xs uppercase transition">Todos</button>
+            <button onclick="filterGallery('detailing', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Detailing</button>
+            <button onclick="filterGallery('tintado', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Tintado</button>
+            <button onclick="filterGallery('ceramico', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Cerámico</button>
+            <button onclick="filterGallery('ppf', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">PPF</button>
+            <button onclick="filterGallery('pulido', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Pulido</button>
+        </div>
+    </section>
+
+    <!-- GRID DE FOTOS DE LA GALERÍA -->
+    <main class="py-8 px-4 max-w-7xl mx-auto w-full flex-grow">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+            
+            <!-- Foto Ejemplo 1 -->
+            <div class="gallery-item detailing relative group overflow-hidden rounded-2xl border border-white/10 bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('bmw-naranja.jpg', 'Detailing BMW Naranja')">
+                <img src="bmw-naranja.jpg" alt="Detailing BMW Naranja" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                    <div>
+                        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Detailing</span>
+                        <h3 class="text-white text-sm font-bold">BMW Naranja</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Foto Ejemplo 2 -->
+            <div class="gallery-item tintado relative group overflow-hidden rounded-2xl border border-white/10 bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('tintado-audi.jpg', 'Tintado de Lunas Audi')">
+                <img src="tintado-audi.jpg" alt="Tintado de Lunas Audi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                    <div>
+                        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Tintado</span>
+                        <h3 class="text-white text-sm font-bold">Audi RS3</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Foto Ejemplo 3 -->
+            <div class="gallery-item ceramico relative group overflow-hidden rounded-2xl border border-white/10 bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('ceramico-porsche.jpg', 'Tratamiento Cerámico Porsche')">
+                <img src="ceramico-porsche.jpg" alt="Tratamiento Cerámico Porsche" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                    <div>
+                        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Cerámico</span>
+                        <h3 class="text-white text-sm font-bold">Porsche 911</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL LIGHTBOX (ZOOM A LA FOTO) -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-yellow">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Foto ampliada" class="max-w-full max-h-[75vh] object-contain rounded-xl border border-white/10">
+            <p id="lightbox-caption" class="text-gray-300 mt-4 text-sm font-semibold"></p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-card border-t border-white/10 py-6 px-4 text-center text-xs text-gray-500 space-y-2">
+        <p>© 2026 Xtream Garage Detailing - Carrer Gran Bretanya, 6, Igualada.</p>
+        <p class="text-[10px] text-gray-600 tracking-wider uppercase">Created by Abel E. F.</p>
+    </footer>
+
+    <!-- JS PARA FILTROS Y LIGHTBOX -->
+    <script>
+        function filterGallery(category, evt) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-yellow', 'text-black');
+                btn.classList.add('bg-brand-card', 'text-gray-300');
+            });
+
+            if (evt && evt.target) {
+                evt.target.classList.remove('bg-brand-card', 'text-gray-300');
+                evt.target.classList.add('bg-brand-yellow', 'text-black');
+            }
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openLightbox(src, title) {
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = title;
+            lightbox.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

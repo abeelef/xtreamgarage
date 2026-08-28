@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xtream Garage Detailing | Igualada, Anoia (Barcelona)</title>
+    <meta name="description" content="Centro especialista en Detailing profesional, PPF, Tintado de lunas y Tratamiento Cerámico en Carrer Gran Bretanya 6, Igualada.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FACC15', 
+                            yellowDark: '#EAB308',
+                            dark: '#0B0B0B',
+                            card: '#141414',
+                            gray: '#1F1F1F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .sidebar-transition { transition: transform 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- BOTÓN MENÚ HAMBURGUESA (FIJO MÓVIL Y PC) -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-brand-dark/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <button id="open-sidebar" class="text-2xl text-white hover:text-brand-yellow focus:outline-none" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="index.html" class="text-xl font-bold tracking-wider uppercase text-white">
+                Xtream<span class="text-brand-yellow">Garage</span>
+            </a>
+        </div>
+        
+        <div class="flex items-center gap-3">
+            <a href="./galeria.html" class="hidden sm:flex items-center gap-2 text-xs font-bold uppercase bg-brand-gray hover:bg-white/10 px-4 py-2 rounded-full border border-white/10 transition">
+                <i class="fa-solid fa-images text-brand-yellow"></i> Galería
+            </a>
+            <a href="https://wa.me/34637551480?text=Hola,%20quiero%20más%20información%20sobre%20vuestros%20servicios" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Contacta aquí
+            </a>
+        </div>
+    </header>
+
+    <!-- MENÚ LATERAL (SIDEBAR) -->
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-80 bg-brand-dark/95 border-r border-white/10 z-50 transform -translate-x-full sidebar-transition flex flex-col justify-between p-6 shadow-2xl backdrop-blur-xl">
+        <div>
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-xl font-extrabold tracking-widest text-white">XTREAM<span class="text-brand-yellow">GARAGE</span></span>
+                <button id="close-sidebar" class="text-2xl text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <nav class="space-y-4">
+                <a href="#inicio" class="sidebar-link block text-lg font-medium hover:text-brand-yellow transition">Inicio</a>
+                
+                <div>
+                    <button id="toggle-services" class="w-full flex justify-between items-center text-lg font-medium hover:text-brand-yellow transition py-1">
+                        <span>Els Serveis</span>
+                        <i id="services-chevron" class="fa-solid fa-chevron-down text-sm transition-transform"></i>
+                    </button>
+                    <div id="services-submenu" class="hidden pl-4 mt-2 space-y-2 border-l border-brand-yellow/30 text-sm text-gray-300">
+                        <a href="#tintado" class="sidebar-link block hover:text-white transition">Tintat de Llunes</a>
+                        <a href="#detailing-exterior" class="sidebar-link block hover:text-white transition">Detailing Exterior</a>
+                        <a href="#detailing-interior" class="sidebar-link block hover:text-white transition">Detailing Interior</a>
+                        <a href="#ceramico" class="sidebar-link block hover:text-white transition">Tractament Ceràmic</a>
+                        <a href="#limpieza-integral" class="sidebar-link block hover:text-white transition">Neteja Integral Detallada</a>
+                        <a href="#limpieza-basica" class="sidebar-link block hover:text-white transition">Neteja Bàsica</a>
+                        <a href="#ppf" class="sidebar-link block hover:text-white transition">PPF (Paint Protection Film)</a>
+                        <a href="#pulido" class="sidebar-link block hover:text-white transition">Polit de Pintura</a>
+                    </div>
+                </div>
+
+                <a href="./galeria.html" class="sidebar-link block text-lg font-medium text-brand-yellow hover:underline transition"><i class="fa-solid fa-images mr-2"></i> Galería de Fotos</a>
+                <a href="#sobre-nosotros" class="sidebar-link block text-lg font-medium hover:text-brand-yellow transition">Sobre Nosotros</a>
+                <a href="#contacto" class="sidebar-link block text-lg font-medium hover:text-brand-yellow transition">Contacto y Ubicación</a>
+            </nav>
+        </div>
+
+        <div class="pt-6 border-t border-white/10">
+            <p class="text-xs text-gray-400 mb-1 text-center font-semibold">Carrer Gran Bretanya, 6</p>
+            <p class="text-xs text-gray-500 mb-4 text-center">Igualada, l'Anoia (Barcelona)</p>
+            <div class="flex justify-center gap-5 text-xl text-gray-300">
+                <a href="#" target="_blank" class="hover:text-brand-yellow"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" class="hover:text-brand-yellow"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" target="_blank" class="hover:text-brand-yellow"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://wa.me/34637551480" target="_blank" class="hover:text-emerald-500"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <div id="overlay" class="fixed inset-0 bg-black/70 z-40 hidden backdrop-blur-sm"></div>
+
+    <!-- SECCIÓN HERO -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden pt-16">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 filter brightness-40">
+            <source src="video-audi-rs3.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/70 z-10"></div>
+
+        <div class="relative z-20 max-w-3xl">
+            <div class="mb-6 inline-block bg-brand-dark/60 p-4 rounded-2xl border border-white/10 backdrop-blur-md">
+                <span class="text-3xl sm:text-5xl font-extrabold tracking-widest uppercase">XTREAM<span class="text-brand-yellow">GARAGE</span></span>
+                <p class="text-xs tracking-widest text-gray-400 mt-1 uppercase">Detailing Studio · Igualada</p>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
+                Bienvenido a <br><span class="text-brand-yellow">Xtream Garage Detailing</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-xl mx-auto">
+                Pasión por la restauración y conservación estética de tu vehículo en Igualada, l'Anoia (Barcelona).
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#tintado" class="inline-block bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-lg">
+                    Ver Servicios y Tarifas
+                </a>
+                <a href="./galeria.html" class="inline-block bg-brand-gray hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl transition border border-white/10 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-images text-brand-yellow"></i> Ver Galería de Fotos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ANTES Y DESPUÉS -->
+    <section class="py-16 px-4 bg-brand-dark border-y border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold uppercase mb-2">Resultado Real en Directo</h2>
+            <p class="text-gray-400 mb-8 text-sm">Arrastra para ver el cambio antes y después de nuestros tratamientos en Igualada.</p>
+            
+            <div id="before-after-container" class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-brand-card flex items-center justify-center">
+                <span class="text-gray-500 text-sm">[ Tu código de Antes y Después va aquí ]</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TINTADO DE LUNAS -->
+    <section id="tintado" class="py-20 px-4 max-w-6xl mx-auto w-full">
+        <div class="text-center mb-12">
+            <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Homologación ITV Incluida</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Tintat de Llunes</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">Láminas de alta protección térmica y privacidad adaptadas según el tamaño del vehículo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="silueta-fiat.png" alt="Petit" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Petit</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tintado de Lunas - Petit', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="silueta-leon.png" alt="Mitjà" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Mitjà</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tintado de Lunas - Mitjà', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="silueta-berlina.png" alt="Gran" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Gran</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tintado de Lunas - Gran', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="silueta-suv.png" alt="4x4 / SUV" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">4x4 / SUV</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tintado de Lunas - 4x4/SUV', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="silueta-furgoneta.png" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tintado de Lunas - Furgoneta', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILING PROFESIONAL DIVIDIDO EN EXTERIOR E INTERIOR -->
+    <section class="py-20 px-4 bg-brand-gray/20 border-t border-white/5">
+        <div class="max-w-6xl mx-auto space-y-12">
+            
+            <div class="text-center">
+                <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Servicios de Alta Gama</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1">Detailing Profesional</h2>
+                <p class="text-gray-400 text-sm mt-2">Restauración, conservación y reacondicionamiento exhaustivo.</p>
+            </div>
+
+            <!-- DETAILING EXTERIOR -->
+            <div id="detailing-exterior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
+                    <div class="service-slider relative w-full h-full min-h-[260px]">
+                        <img src="foto-detailing-exterior-1.jpg" alt="Detailing Exterior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                        <img src="foto-detailing-exterior-2.jpg" alt="Detailing Exterior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    </div>
+                    <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
+                        Exterior
+                    </div>
+                </div>
+                <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                    <div class="space-y-3">
+                        <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider"><i class="fa-solid fa-car mr-1"></i> Acondicionamiento Exterior</span>
+                        <h3 class="text-2xl font-extrabold uppercase text-white">Detailing Exterior</h3>
+                        <p class="text-gray-300 text-sm">Tratamiento de regeneración del aspecto exterior de la carrocería, garantizando un acabado libre de contaminación y máximo brillo.</p>
+                        
+                        <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                            <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                            <ul class="text-xs text-gray-400 space-y-1">
+                                <li>• Descontaminado férrico y químico de la pintura</li>
+                                <li>• Limpieza detallada de llantas, pasos de rueda y gargantas</li>
+                                <li>• Nutrición e hidratación de plásticos y gomas exteriores</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        </div>
+                        <button onclick="openFormModal('Detailing Exterior', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILING INTERIOR -->
+            <div id="detailing-interior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
+                    <div class="service-slider relative w-full h-full min-h-[260px]">
+                        <img src="foto-detailing-interior-1.jpg" alt="Detailing Interior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                        <img src="foto-detailing-interior-2.jpg" alt="Detailing Interior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    </div>
+                    <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
+                        Interior
+                    </div>
+                </div>
+                <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                    <div class="space-y-3">
+                        <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider"><i class="fa-solid fa-couch mr-1"></i> Restauration de Habitáculo</span>
+                        <h3 class="text-2xl font-extrabold uppercase text-white">Detailing Interior</h3>
+                        <p class="text-gray-300 text-sm">Limpieza minuciosa y tratamiento de conservación de todos los materiales interiores para recuperar el aspecto y olor a vehículo nuevo.</p>
+                        
+                        <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                            <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                            <ul class="text-xs text-gray-400 space-y-1">
+                                <li>• Nutrición y tratamiento protector para tapicerías de piel/cuero</li>
+                                <li>• Limpieza por inyección-extracción en tapicerías de tela y alfombras</li>
+                                <li>• Desinfección técnica de conductos de aire acondicionado y plásticos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        </div>
+                        <button onclick="openFormModal('Detailing Interior', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FICHAS DE OTROS SERVICIOS CON IMAGEN INDIVIDUAL/CARRUSEL -->
+    <section class="py-20 px-4 max-w-6xl mx-auto space-y-8">
+
+        <!-- Tratamiento Cerámico -->
+        <div id="ceramico" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-ceramico-1.jpg" alt="Tratamiento Cerámico 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-ceramico-2.jpg" alt="Tratamiento Cerámico 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Protección de Pintura</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Tratamiento Cerámico</h3>
+                    <p class="text-gray-300 text-sm">Recubrimiento cerámico que protege el barniz contra radiación UV, excrementos de aves, restos de insectos y suciedad, aportando un brillo cristalino e hidrofobia extrema.</p>
+                    
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Lavado y descontaminado previo + Pulido de corrección + Aplicación de sellador cerámico de alta durabilidad en carrocería.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tratamiento Cerámico', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limpieza Integral Detallada -->
+        <div id="limpieza-integral" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-limpieza-integral-1.jpg" alt="Limpieza Integral 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-limpieza-integral-2.jpg" alt="Limpieza Integral 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Higiene Completa</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Limpieza Integral Detallada</h3>
+                    <p class="text-gray-300 text-sm">Limpieza a fondo con maquinaria profesional para recuperar la frescura y la estética de origen en cada rincón del habitáculo.</p>
+                    
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Limpieza con inyección-extracción de asientos y alfombrillas + Detallado de salpicadero, consola central, maletero y cristales.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Limpieza Integral Detallada', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limpieza Básica -->
+        <div id="limpieza-basica" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-limpieza-basica-1.jpg" alt="Limpieza Básica 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-limpieza-basica-2.jpg" alt="Limpieza Básica 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Mantenimiento Periódico</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Limpieza Básica</h3>
+                    <p class="text-gray-300 text-sm">Servicio de acondicionamiento seguro contra arañazos para mantener tu vehículo siempre impecable.</p>
+                    
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Lavado manual seguro exterior con champú neutro + Aspirado de habitáculo y acondicionamiento básico de llantas y neumáticos.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Limpieza Básica', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PPF (Paint Protection Film) -->
+        <div id="ppf" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-ppf-1.jpg" alt="PPF 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-ppf-2.jpg" alt="PPF 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Escudo de Protección Físico</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">PPF (Paint Protection Film)</h3>
+                    <p class="text-gray-300 text-sm">Lámina de poliuretano transparente de calidad premium que protege la pintura contra chinazos de carretera y rozaduras.</p>
+                    
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Instalación de film transparente autocurativo en frontal completo o vehículo entero según el paquete seleccionado.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('PPF (Paint Protection Film)', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+
+<!-- Pulido -->
+        <div id="pulido" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-pulido-1.jpg" alt="Pulido 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-pulido-2.jpg" alt="Pulido 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Corrección de Pintura</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Pulido de Pintura</h3>
+                    <p class="text-gray-300 text-sm">Eliminación de microarañazos (*swirls*), imperfecciones y pérdida de intensidad del color original del barniz.</p>
+                    
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Medición de espesor de laca + Pulido en 1, 2 o 3 pasos según corrección necesaria + Capa protectora final.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Pulido de Pintura', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PRODUCTOS UTILIZADOS -->
+    <section class="py-12 bg-brand-dark border-y border-white/5 text-center">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-6">Utilizamos productos de alta gama garantizados</p>
+        <div class="flex justify-center items-center gap-12 grayscale opacity-80 hover:opacity-100 transition">
+            <span class="text-lg font-bold tracking-wider text-white">ABO COSMETICA</span>
+        </div>
+    </section>
+
+    <!-- EMPRESAS Y CLIENTES -->
+    <section class="py-16 px-4 max-w-6xl mx-auto text-center">
+        <h2 class="text-xl font-bold uppercase text-gray-400 mb-8">Empresas y Clientes que confían en nosotros</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center opacity-60">
+            <div class="bg-brand-card p-4 rounded-xl border border-white/5">Empresa Cliente 1</div>
+            <div class="bg-brand-card p-4 rounded-xl border border-white/5">Empresa Cliente 2</div>
+            <div class="bg-brand-card p-4 rounded-xl border border-white/5">Empresa Cliente 3</div>
+            <div class="bg-brand-card p-4 rounded-xl border border-white/5">Empresa Cliente 4</div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre-nosotros" class="py-20 px-4 bg-brand-card/40 border-t border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-extrabold uppercase mb-4">Sobre Nosotros</h2>
+            <p class="text-gray-300 leading-relaxed mb-6">
+                En **Xtream Garage Detailing** ofrecemos el más alto nivel de cuidado automotriz en Igualada, l'Anoia (Barcelona). Nos apasiona devolver el estado de reestreno a cada vehículo que entra en nuestro taller de **Carrer Gran Bretanya 6**.
+            </p>
+
+            <!-- Foto del Equipo de Trabajadores -->
+            <div class="my-8 max-w-2xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img src="foto-equipo.jpg" alt="Equipo Xtream Garage Detailing" class="w-full h-auto object-cover">
+            </div>
+
+            <p class="text-gray-400 text-sm">
+                Trabajamos con técnicas avanzadas y productos especializados para garantizar acabados de exposición.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y MAPA -->
+    <footer id="contacto" class="bg-brand-card border-t border-white/10 pt-16 pb-8 px-4 mt-auto">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <div>
+                <span class="text-2xl font-black uppercase">XTREAM<span class="text-brand-yellow">GARAGE</span></span>
+                <p class="text-sm text-gray-400 mt-2 mb-6">Tu estudio de detailing en Igualada, l'Anoia (Catalunya).</p>
+                
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p class="flex items-center gap-3">
+                        <i class="fa-solid fa-location-dot text-brand-yellow text-lg"></i>
+                        <span><strong>Carrer Gran Bretanya, 6</strong>, 08700 Igualada, Barcelona</span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-brand-yellow text-lg"></i>
+                        <a href="tel:637551480" class="hover:text-white transition">637 55 14 80</a>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
+                        <a href="https://wa.me/34637551480" target="_blank" class="hover:text-white transition">Contacta aquí</a>
+                    </p>
+                </div>
+
+                <div class="flex gap-4 text-xl mt-6">
+                    <a href="#" class="bg-brand-dark p-3 rounded-full hover:text-brand-yellow border border-white/10"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="bg-brand-dark p-3 rounded-full hover:text-brand-yellow border border-white/10"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="bg-brand-dark p-3 rounded-full hover:text-brand-yellow border border-white/10"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://wa.me/34637551480" class="bg-brand-dark p-3 rounded-full hover:text-emerald-500 border border-white/10"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="w-full h-72 bg-brand-dark rounded-2xl overflow-hidden border border-white/10">
+                <iframe src="https://www.google.com/maps?q=Carrer+Gran+Bretanya+6+Igualada&output=embed" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="text-center text-xs text-gray-500 pt-8 border-t border-white/5 space-y-2">
+            <p>© 2026 Xtream Garage Detailing - Carrer Gran Bretanya, 6, Igualada (Barcelona).</p>
+            <p class="text-[11px] text-gray-400">Todas las imágenes mostradas son propiedad de Xtream Garage Detailing, tomadas en nuestro taller. Prohibido su uso sin autorización.</p>
+            <p class="text-[10px] text-gray-600 tracking-wider uppercase pt-1">Created by Abel E. F.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DE FORMULARIO DE PRESUPUESTO -->
+    <div id="quote-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-white/10 rounded-2xl max-w-lg w-full p-6 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+            
+            <button onclick="closeFormModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Solicitud de Reserva / Cita</span>
+                <h3 class="text-2xl font-extrabold text-white uppercase mt-1" id="modal-service-title">Solicitar Servicio</h3>
+                <div class="mt-2 text-sm text-gray-300 bg-brand-dark/60 p-3 rounded-xl border border-white/5 flex items-center justify-between">
+                    <span>Precio orientativo:</span>
+                    <span class="text-brand-yellow font-black text-lg" id="modal-service-price">Desde -- €</span>
+                </div>
+            </div>
+
+            <form id="quote-form" class="space-y-4">
+                
+                <input type="hidden" name="Servicio Seleccionado" id="input-hidden-service">
+                <input type="hidden" name="Precio Base" id="input-hidden-price">
+
+                <!-- Servicio Seleccionado (Desplegable para cambiarlo si lo desea) -->
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Servicio a solicitar *</label>
+                    <select id="service-select" required onchange="updateModalServiceFromSelect()" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                        <option value="Tintado de Lunas - Petit|--">Tintado de Lunas - Petit (Desde -- €)</option>
+                        <option value="Tintado de Lunas - Mitjà|--">Tintado de Lunas - Mitjà (Desde -- €)</option>
+                        <option value="Tintado de Lunas - Gran|--">Tintado de Lunas - Gran (Desde -- €)</option>
+                        <option value="Tintado de Lunas - 4x4/SUV|--">Tintado de Lunas - 4x4 / SUV (Desde -- €)</option>
+                        <option value="Tintado de Lunas - Furgoneta|--">Tintado de Lunas - Furgoneta (Desde -- €)</option>
+                        <option value="Detailing Exterior|--">Detailing Exterior (Desde -- €)</option>
+                        <option value="Detailing Interior|--">Detailing Interior (Desde -- €)</option>
+                        <option value="Tratamiento Cerámico|--">Tratamiento Cerámico (Desde -- €)</option>
+                        <option value="Limpieza Integral Detallada|--">Limpieza Integral Detallada (Desde -- €)</option>
+                        <option value="Limpieza Básica|--">Limpieza Básica (Desde -- €)</option>
+                        <option value="PPF (Paint Protection Film)|--">PPF (Paint Protection Film) (Desde -- €)</option>
+                        <option value="Pulido de Pintura|--">Pulido de Pintura (Desde -- €)</option>
+                    </select>
+                </div>
+
+                <!-- Nombre Completo -->
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Nombre Completo *</label>
+                    <input type="text" name="Nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                </div>
+
+                <!-- Teléfono / WhatsApp -->
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Teléfono / WhatsApp *</label>
+                    <input type="tel" name="Telefono" required placeholder="600 000 000" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                </div>
+
+                <!-- Modelo y Año -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Modelo de Coche *</label>
+                        <input type="text" name="Vehiculo" required placeholder="Ej: Audi A3 / Golf GTI" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Año del Coche *</label>
+                        <input type="text" name="Ano_Vehiculo" required placeholder="Ej: 2020" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                    </div>
+                </div>
+
+                <!-- Adjuntar Foto del Coche (OPCIONAL) -->
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Foto del Vehículo (Opcional)</label>
+                    <input type="file" id="car-photo-input" accept="image/*" class="w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-gray file:text-brand-yellow hover:file:bg-white/10 cursor-pointer border border-white/10 rounded-xl bg-brand-dark p-1">
+                    <p id="compression-status" class="text-[10px] text-emerald-400 mt-1 hidden"></p>
+                </div>
+
+                <!-- Observaciones -->
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Observaciones / Detalles</label>
+                    <textarea name="Mensaje" rows="2" placeholder="Indícanos si tiene algún arañazo, estado de la tapicería o preferencia de fecha." class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-extrabold py-3.5 rounded-xl uppercase transition text-sm">
+                    Enviar Solicitud
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- LIBRERÍA COMPRESOR DE IMÁGENES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.2.1/compressor.min.js"></script>
+
+        <!-- LÓGICA JS -->
+    <script>
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const toggleServices = document.getElementById('toggle-services');
+        const servicesSubmenu = document.getElementById('services-submenu');
+        const servicesChevron = document.getElementById('services-chevron');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function openMenu() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        }
+
+        function closeMenu() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        }
+
+        openBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        toggleServices.addEventListener('click', () => {
+            servicesSubmenu.classList.toggle('hidden');
+            servicesChevron.classList.toggle('rotate-180');
+        });
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Carrusel automático de imágenes en servicios
+        document.querySelectorAll('.service-slider').forEach(slider => {
+            const images = slider.querySelectorAll('.slide-img');
+            if (images.length > 1) {
+                let currentIndex = 0;
+                setInterval(() => {
+                    images[currentIndex].classList.remove('opacity-100');
+                    images[currentIndex].classList.add('opacity-0');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.remove('opacity-0');
+                    images[currentIndex].classList.add('opacity-100');
+                }, 3500);
+            }
+        });
+
+        // LÓGICA DEL FORMULARIO Y MODAL
+        function openFormModal(serviceName, basePrice) {
+            document.getElementById('modal-service-title').innerText = serviceName;
+            document.getElementById('modal-service-price').innerText = 'Desde ' + basePrice + ' €';
+            document.getElementById('input-hidden-service').value = serviceName;
+            document.getElementById('input-hidden-price').value = basePrice + ' €';
+
+            const select = document.getElementById('service-select');
+            for (let option of select.options) {
+                if (option.value.startsWith(serviceName)) {
+                    option.selected = true;
+                    break;
+                }
+            }
+
+            document.getElementById('quote-modal').classList.remove('hidden');
+        }
+
+        function updateModalServiceFromSelect() {
+            const select = document.getElementById('service-select');
+            const [serviceName, basePrice] = select.value.split('|');
+            document.getElementById('modal-service-title').innerText = serviceName;
+            document.getElementById('modal-service-price').innerText = 'Desde ' + basePrice + ' €';
+            document.getElementById('input-hidden-service').value = serviceName;
+            document.getElementById('input-hidden-price').value = basePrice + ' €';
+        }
+
+        function closeFormModal() {
+            document.getElementById('quote-modal').classList.add('hidden');
+        }
+
+        let compressedFile = null;
+
+        document.getElementById('car-photo-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const statusText = document.getElementById('compression-status');
+
+            if (!file) {
+                compressedFile = null;
+                statusText.classList.add('hidden');
+                return;
+            }
+
+            statusText.classList.remove('hidden');
+            statusText.innerText = "Optimizando imagen para el envío...";
+
+            new Compressor(file, {
+                quality: 0.6,
+                maxWidth: 1200,
+                maxHeight: 1200,
+                success(result) {
+                    compressedFile = new File([result], result.name, {
+                        type: result.type,
+                        lastModified: Date.now(),
+                    });
+                    statusText.innerText = "✓ Imagen procesada correctamente.";
+                },
+                error(err) {
+                    console.error(err.message);
+                    statusText.innerText = "Error al procesar la imagen.";
+                    compressedFile = file;
+                },
+            });
+        });
+
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nameVal     = this.querySelector('[name="Nombre"]').value;
+            const phoneVal    = this.querySelector('[name="Telefono"]').value;
+            const carVal      = this.querySelector('[name="Vehiculo"]').value;
+            const yearVal     = this.querySelector('[name="Ano_Vehiculo"]').value;
+            const userMsg     = this.querySelector('[name="Mensaje"]').value;
+            const selectedService = document.getElementById('input-hidden-service').value;
+            const selectedPrice   = document.getElementById('input-hidden-price').value;
+
+            const message = `SOLICITUD DE CITA - XTREAM GARAGE
+ 
+Servicio: ${selectedService} (${selectedPrice})
+Nombre: ${nameVal}
+Telefono: ${phoneVal}
+Vehiculo: ${carVal} (${yearVal})
+Observaciones: ${userMsg || 'Ninguna'}
+
+(Si tienes foto del vehiculo, adjuntala a continuacion)`;
+
+            const encoded = encodeURIComponent(message);
+            const waNumber = '34691212875';
+
+            window.open(`https://wa.me/${waNumber}?text=${encoded}`, '_blank');
+
+            closeFormModal();
+            this.reset();
+            compressedFile = null;
+            document.getElementById('compression-status').classList.add('hidden');
+        });
+    </script>
+
+    
