@@ -47,8 +47,8 @@
             <button id="open-sidebar" class="text-2xl text-white hover:text-brand-yellow focus:outline-none" aria-label="Abrir menú">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <a href="index.html" class="text-xl font-bold tracking-wider uppercase text-white">
-                Xtream<span class="text-brand-yellow">Garage</span>
+            <a href="index.html" aria-label="Xtream Garage Detailing">
+                <img src="img/logo.png" alt="Xtream Garage" class="h-9 sm:h-10 w-auto object-contain">
             </a>
         </div>
 
@@ -120,9 +120,10 @@
         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/70 z-10"></div>
 
         <div class="relative z-20 max-w-3xl">
-            <div class="mb-6 inline-block bg-brand-dark/60 p-4 rounded-2xl border border-white/10 backdrop-blur-md">
-                <span class="text-3xl sm:text-5xl font-extrabold tracking-widest uppercase">XTREAM<span class="text-brand-yellow">GARAGE</span></span>
-                <p class="text-xs tracking-widest text-gray-400 mt-1 uppercase">Detailing Studio · Igualada</p>
+            <div class="mb-6 flex flex-col items-center gap-3">
+                <img src="img/logo.png" alt="Xtream Garage Detailing"
+                     class="h-28 sm:h-40 md:h-48 w-auto object-contain drop-shadow-[0_0_30px_rgba(239,255,17,0.25)]">
+                <p class="text-xs tracking-widest text-gray-400 uppercase">Detailing Studio · Igualada</p>
             </div>
 
             <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
@@ -166,7 +167,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="silueta-fiat.png" alt="Petit" class="h-24 mx-auto object-contain mb-4">
+                    <img src="img/plantillas_coches/pequeno.webp" alt="Petit" class="h-24 mx-auto object-contain mb-4">
                     <h3 class="font-bold text-lg mb-1">Petit</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
                 </div>
@@ -181,7 +182,7 @@
 
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="silueta-leon.png" alt="Mitjà" class="h-24 mx-auto object-contain mb-4">
+                    <img src="img/plantillas_coches/compacto.webp" alt="Mitjà" class="h-24 mx-auto object-contain mb-4">
                     <h3 class="font-bold text-lg mb-1">Mitjà</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
                 </div>
@@ -196,7 +197,7 @@
 
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="silueta-berlina.png" alt="Gran" class="h-24 mx-auto object-contain mb-4">
+                    <img src="img/plantillas_coches/sedan.png" alt="Gran" class="h-24 mx-auto object-contain mb-4">
                     <h3 class="font-bold text-lg mb-1">Gran</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
                 </div>
@@ -211,7 +212,7 @@
 
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="silueta-suv.png" alt="4x4 / SUV" class="h-24 mx-auto object-contain mb-4">
+                    <img src="img/plantillas_coches/4x4.png" alt="4x4 / SUV" class="h-24 mx-auto object-contain mb-4">
                     <h3 class="font-bold text-lg mb-1">4x4 / SUV</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
                 </div>
@@ -226,7 +227,7 @@
 
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="silueta-furgoneta.png" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4">
+                    <img src="img/plantillas_coches/furgoneta.webp" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4">
                     <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
                 </div>
@@ -463,122 +464,82 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             <!-- Petit -->
-            <div class="bg-brand-card rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col overflow-hidden">
-                <div class="relative w-full h-32 overflow-hidden">
-                    <div class="service-slider relative w-full h-full">
-                        <img src="foto-pulido-1.jpg" alt="Pulido Petit 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-pulido-2.jpg" alt="Pulido Petit 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/pequeno.webp" alt="Petit" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Petit</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
                 </div>
-                <div class="p-5 flex flex-col justify-between flex-1 text-center">
+                <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
-                        <img src="silueta-fiat.png" alt="Petit" class="h-16 mx-auto object-contain mb-3">
-                        <h3 class="font-bold text-base mb-1">Petit</h3>
-                        <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
                     </div>
-                    <div class="pt-3 border-t border-white/5 space-y-3">
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                        </div>
-                        <button onclick="openFormModal('Pulido de Pintura - Petit', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
-                    </div>
+                    <button onclick="openFormModal('Pulido de Pintura - Petit', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
                 </div>
             </div>
 
             <!-- Mitjà -->
-            <div class="bg-brand-card rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col overflow-hidden">
-                <div class="relative w-full h-32 overflow-hidden">
-                    <div class="service-slider relative w-full h-full">
-                        <img src="foto-pulido-1.jpg" alt="Pulido Mitjà 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-pulido-2.jpg" alt="Pulido Mitjà 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/compacto.webp" alt="Mitjà" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Mitjà</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
                 </div>
-                <div class="p-5 flex flex-col justify-between flex-1 text-center">
+                <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
-                        <img src="silueta-leon.png" alt="Mitjà" class="h-16 mx-auto object-contain mb-3">
-                        <h3 class="font-bold text-base mb-1">Mitjà</h3>
-                        <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
                     </div>
-                    <div class="pt-3 border-t border-white/5 space-y-3">
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                        </div>
-                        <button onclick="openFormModal('Pulido de Pintura - Mitjà', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
-                    </div>
+                    <button onclick="openFormModal('Pulido de Pintura - Mitjà', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
                 </div>
             </div>
 
             <!-- Gran -->
-            <div class="bg-brand-card rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col overflow-hidden">
-                <div class="relative w-full h-32 overflow-hidden">
-                    <div class="service-slider relative w-full h-full">
-                        <img src="foto-pulido-1.jpg" alt="Pulido Gran 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-pulido-2.jpg" alt="Pulido Gran 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/sedan.png" alt="Gran" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Gran</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
                 </div>
-                <div class="p-5 flex flex-col justify-between flex-1 text-center">
+                <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
-                        <img src="silueta-berlina.png" alt="Gran" class="h-16 mx-auto object-contain mb-3">
-                        <h3 class="font-bold text-base mb-1">Gran</h3>
-                        <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
                     </div>
-                    <div class="pt-3 border-t border-white/5 space-y-3">
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                        </div>
-                        <button onclick="openFormModal('Pulido de Pintura - Gran', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
-                    </div>
+                    <button onclick="openFormModal('Pulido de Pintura - Gran', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
                 </div>
             </div>
 
             <!-- 4x4 / SUV -->
-            <div class="bg-brand-card rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col overflow-hidden">
-                <div class="relative w-full h-32 overflow-hidden">
-                    <div class="service-slider relative w-full h-full">
-                        <img src="foto-pulido-1.jpg" alt="Pulido SUV 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-pulido-2.jpg" alt="Pulido SUV 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/4x4.png" alt="4x4 / SUV" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">4x4 / SUV</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
                 </div>
-                <div class="p-5 flex flex-col justify-between flex-1 text-center">
+                <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
-                        <img src="silueta-suv.png" alt="4x4 / SUV" class="h-16 mx-auto object-contain mb-3">
-                        <h3 class="font-bold text-base mb-1">4x4 / SUV</h3>
-                        <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
                     </div>
-                    <div class="pt-3 border-t border-white/5 space-y-3">
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                        </div>
-                        <button onclick="openFormModal('Pulido de Pintura - 4x4/SUV', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
-                    </div>
+                    <button onclick="openFormModal('Pulido de Pintura - 4x4/SUV', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
                 </div>
             </div>
 
             <!-- Furgoneta -->
-            <div class="bg-brand-card rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col overflow-hidden">
-                <div class="relative w-full h-32 overflow-hidden">
-                    <div class="service-slider relative w-full h-full">
-                        <img src="foto-pulido-1.jpg" alt="Pulido Furgoneta 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-pulido-2.jpg" alt="Pulido Furgoneta 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/furgoneta.webp" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4">
+                    <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
                 </div>
-                <div class="p-5 flex flex-col justify-between flex-1 text-center">
+                <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
-                        <img src="silueta-furgoneta.png" alt="Furgoneta" class="h-16 mx-auto object-contain mb-3">
-                        <h3 class="font-bold text-base mb-1">Furgoneta</h3>
-                        <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
                     </div>
-                    <div class="pt-3 border-t border-white/5 space-y-3">
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                        </div>
-                        <button onclick="openFormModal('Pulido de Pintura - Furgoneta', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
-                    </div>
+                    <button onclick="openFormModal('Pulido de Pintura - Furgoneta', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
                 </div>
             </div>
         </div>

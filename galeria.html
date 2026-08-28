@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Trabajos | Xtream Garage Detailing Igualada</title>
     <meta name="description" content="Galería de fotos de nuestros trabajos de detailing, tintado de lunas, PPF y pulido en Igualada.">
-    
+
+    <!-- Google Fonts: Audiowide -->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            yellow: '#FACC15', 
-                            yellowDark: '#EAB308',
+                            yellow: '#EFFF11',
+                            yellowDark: '#D4E60F',
                             dark: '#0B0B0B',
                             card: '#141414',
                             gray: '#1F1F1F'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Audiowide', 'sans-serif'],
                     }
                 }
             }
@@ -31,8 +36,8 @@
 
     <!-- HEADER / NAV -->
     <header class="fixed top-0 left-0 w-full z-40 bg-brand-dark/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="text-xl font-bold tracking-wider uppercase text-white">
-            Xtream<span class="text-brand-yellow">Garage</span>
+        <a href="index.html" aria-label="Xtream Garage Detailing">
+            <img src="img/logo.png" alt="Xtream Garage" class="h-9 sm:h-10 w-auto object-contain">
         </a>
         <a href="index.html" class="bg-brand-gray hover:bg-white/10 text-white px-4 py-2 rounded-xl text-sm font-semibold transition border border-white/10 flex items-center gap-2">
             <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
