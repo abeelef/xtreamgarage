@@ -42,6 +42,18 @@
             transition: background-color 0.4s ease;
         }
 
+        .tintado-tab {
+            color: rgba(255,255,255,0.5);
+            background: transparent;
+        }
+        .tintado-tab.active-tab {
+            background-color: #EFFF11;
+            color: #000;
+        }
+        .tintado-tab.active-tab span {
+            opacity: 1 !important;
+        }
+
         .brands-track {
             animation: scroll-brands 18s linear infinite;
             width: max-content;
@@ -199,13 +211,34 @@
 
     <!-- TINTADO DE LUNAS -->
     <section id="tintado" class="py-20 px-4 max-w-6xl mx-auto w-full">
-        <div class="text-center mb-12">
+        <div class="text-center mb-10">
             <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Homologación ITV Incluida</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Tintado de Lunas</h2>
             <p class="text-gray-400 max-w-xl mx-auto">Láminas de alta protección térmica y privacidad adaptadas según el tamaño del vehículo.</p>
         </div>
 
+        <!-- SELECTOR DE TIPO DE LÁMINA -->
+        <div class="flex justify-center mb-10">
+            <div class="inline-flex bg-brand-card border border-white/10 rounded-2xl p-1.5 gap-1.5">
+                <button id="tab-basica"
+                    onclick="selectTintadoTab('basica')"
+                    class="tintado-tab active-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-0.5">
+                    <span>Lámina Básica</span>
+                    <span class="text-[10px] font-normal opacity-70">Hasta 15 años de garantía</span>
+                </button>
+                <button id="tab-ceramica"
+                    onclick="selectTintadoTab('ceramica')"
+                    class="tintado-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-0.5">
+                    <span>Lámina Cerámica</span>
+                    <span class="text-[10px] font-normal opacity-70">Alta gama · máximo rendimiento</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- GRID DE TAMAÑOS -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+            <!-- Pequeño -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
                     <img src="img/plantillas_coches/pequeno.webp" loading="lazy" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
@@ -215,12 +248,14 @@
                 <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
                         <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
                     </div>
-                    <button onclick="openFormModal('Tintado de Lunas - Pequeño', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Pequeño">Pedir Cita</button>
                 </div>
             </div>
 
+            <!-- Mediano -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
                     <img src="img/plantillas_coches/compacto.webp" loading="lazy" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
@@ -230,12 +265,14 @@
                 <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
                         <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
                     </div>
-                    <button onclick="openFormModal('Tintado de Lunas - Mediano', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Mediano">Pedir Cita</button>
                 </div>
             </div>
 
+            <!-- Grande -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
                     <img src="img/plantillas_coches/sedan.png" loading="lazy" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
@@ -245,12 +282,14 @@
                 <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
                         <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
                     </div>
-                    <button onclick="openFormModal('Tintado de Lunas - Grande', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Grande">Pedir Cita</button>
                 </div>
             </div>
 
+            <!-- 4x4 -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
                     <img src="img/plantillas_coches/4x4.png" loading="lazy" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
@@ -260,12 +299,14 @@
                 <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
                         <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
                     </div>
-                    <button onclick="openFormModal('Tintado de Lunas - 4x4', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="4x4">Pedir Cita</button>
                 </div>
             </div>
 
+            <!-- Furgoneta -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
                     <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
@@ -275,11 +316,13 @@
                 <div class="pt-3 border-t border-white/5 space-y-3">
                     <div>
                         <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
                     </div>
-                    <button onclick="openFormModal('Tintado de Lunas - Furgoneta', '--')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase">Pedir Cita</button>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Furgoneta">Pedir Cita</button>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -969,6 +1012,43 @@ Observaciones: ${userMsg || 'Ninguna'}
         // Cerrar modal clicando fuera
         document.getElementById('quote-modal').addEventListener('click', function (e) {
             if (e.target === this) closeFormModal();
+        });
+    </script>
+
+    <script>
+        // ── TINTADO: selector de lámina ──────────────────────────────────────
+        // Para añadir precios cuando estén listos, cambia los valores aquí:
+        // data-basica="XX" y data-ceramica="XX" en cada .tintado-precio del HTML,
+        // o edita los objetos de abajo si prefieres centralizarlo en JS.
+        // ─────────────────────────────────────────────────────────────────────
+
+        let tintadoTipoActivo = 'basica';
+
+        function selectTintadoTab(tipo) {
+            tintadoTipoActivo = tipo;
+
+            // Actualizar estilos de tabs
+            document.querySelectorAll('.tintado-tab').forEach(btn => {
+                btn.classList.remove('active-tab');
+            });
+            document.getElementById('tab-' + tipo).classList.add('active-tab');
+
+            // Actualizar precios mostrados
+            document.querySelectorAll('.tintado-precio').forEach(el => {
+                const precio = el.dataset[tipo];
+                el.textContent = precio + ' €';
+            });
+        }
+
+        // Vincular botones "Pedir Cita" del tintado al modal con el tipo activo
+        document.querySelectorAll('.tintado-cita').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const size = this.dataset.size;
+                const precioEl = this.closest('.space-y-3').querySelector('.tintado-precio');
+                const precio = precioEl ? precioEl.dataset[tintadoTipoActivo] : '--';
+                const tipoLabel = tintadoTipoActivo === 'basica' ? 'Lámina Básica' : 'Lámina Cerámica';
+                openFormModal('Tintado de Lunas ' + tipoLabel + ' - ' + size, precio);
+            });
         });
     </script>
 
