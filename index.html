@@ -166,6 +166,7 @@
             <div class="mb-6 flex flex-col items-center gap-3">
                 <img src="img/logo.png"
                      alt="Xtream Garage Detailing"
+                     fetchpriority="high" decoding="async"
                      class="h-28 sm:h-40 md:h-48 w-auto object-contain drop-shadow-[0_0_30px_rgba(239,255,17,0.25)]">
 
                 <p class="text-xs tracking-widest text-gray-400 uppercase">
@@ -207,11 +208,11 @@
             <!-- Comparador Interactivo Antes y Después -->
             <div id="before-after-container" class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-brand-card select-none cursor-ew-resize">
                 <!-- Imagen Después (Fondo) -->
-                <img src="img/antesdespues/despuesInterior.jpg" alt="Después" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                <img src="img/antesdespues/despuesInterior.jpg" loading="lazy" decoding="async" alt="Después" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
                 
                 <!-- Capa Imagen Antes (Recortada) -->
                 <div id="ba-before-wrapper" class="absolute inset-0 w-1/2 h-full overflow-hidden pointer-events-none">
-                    <img id="ba-before-img" src="img/antesdespues/antesInterior.jpg" alt="Antes" class="absolute top-0 left-0 h-full object-cover max-w-none">
+                    <img id="ba-before-img" src="img/antesdespues/antesInterior.jpg" loading="lazy" decoding="async" alt="Antes" class="absolute top-0 left-0 h-full object-cover max-w-none">
                 </div>
 
                 <!-- Etiquetas de Antes y Después -->
@@ -357,7 +358,11 @@
     </section>
 
     <!-- 2. PULIDO DE PINTURA -->
-    <section id="pulido" class="py-20 px-4 max-w-6xl mx-auto w-full border-t border-white/5">
+    <section id="pulido" class="relative py-20 px-4 border-t border-white/5 bg-cover bg-center bg-no-repeat" style="background-image: url('img/pulidoBase.jpg');">
+        <!-- Capa de superposición para contraste y estética -->
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/95 via-brand-dark/90 to-brand-dark/95"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto w-full">
         <div class="text-center mb-12">
             <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Corrección de Pintura</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Pulido de Pintura</h2>
@@ -368,7 +373,7 @@
             <!-- Pequeño -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/pequeno.webp" loading="lazy" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/pequeno.webp" loading="lazy" decoding="async" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Pequeño</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
                 </div>
@@ -384,7 +389,7 @@
             <!-- Mediano -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/compacto.webp" loading="lazy" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/compacto.webp" loading="lazy" decoding="async" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Mediano</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
                 </div>
@@ -400,7 +405,7 @@
             <!-- Grande -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/sedan.png" loading="lazy" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/sedan.png" loading="lazy" decoding="async" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Grande</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
                 </div>
@@ -416,7 +421,7 @@
             <!-- 4x4-->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/4x4.png" loading="lazy" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
+                    <img src="img/plantillas_coches/4x4.png" loading="lazy" decoding="async" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
                     <h3 class="font-bold text-lg mb-1">4x4</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
                 </div>
@@ -432,7 +437,7 @@
             <!-- Furgoneta -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" decoding="async" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
                 </div>
@@ -450,6 +455,11 @@
             <i class="fa-solid fa-circle-info text-brand-yellow mr-2"></i>
             El precio incluye: <span class="text-white">medición de espesor de laca</span> + <span class="text-white">pulido en 1, 2 o 3 pasos</span> según corrección necesaria + <span class="text-white">capa protectora final</span>.
         </div>
+        <div class="mt-4 bg-brand-yellow/10 border border-brand-yellow/40 rounded-2xl p-5 text-sm text-center">
+            <i class="fa-solid fa-star text-brand-yellow mr-2"></i>
+            <a href="#ceramico" class="text-white hover:text-brand-yellow transition"><strong class="text-brand-yellow">¿Sabías que...?</strong> El Tratamiento Cerámico solo se ofrece como pack junto al Pulido de Pintura. <span class="underline">Ver Tratamiento Cerámico</span></a>
+        </div>
+        </div>
     </section>
 
     <!-- 3. TRATAMIENTO CERÁMICO -->
@@ -458,8 +468,8 @@
         <div id="ceramico" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
             <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
                 <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="img/ceramicoBase1.jpg" loading="lazy" alt="Tratamiento Cerámico 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="img/ceramicoBase2.jpg" loading="lazy" alt="Tratamiento Cerámico 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    <img src="img/ceramicoBase1.jpg" loading="lazy" decoding="async" alt="Tratamiento Cerámico 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="img/ceramicoBase2.jpg" loading="lazy" decoding="async" alt="Tratamiento Cerámico 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                 </div>
             </div>
             <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
@@ -472,6 +482,11 @@
                         <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
                         <p class="text-xs text-gray-400">• Lavado y descontaminado previo + Pulido de corrección + Aplicación de sellador cerámico de alta durabilidad en carrocería.</p>
                     </div>
+
+                    <div class="bg-brand-yellow/10 border border-brand-yellow/40 rounded-xl p-3 flex items-start gap-2">
+                        <i class="fa-solid fa-circle-exclamation text-brand-yellow mt-0.5"></i>
+                        <p class="text-xs text-gray-200"><strong class="text-brand-yellow">Pack obligatorio:</strong> el Tratamiento Cerámico solo se realiza junto con el <a href="#pulido" class="underline hover:text-brand-yellow">Pulido de Pintura</a>, ya que la pintura debe corregirse antes de aplicar el sellador.</p>
+                    </div>
                 </div>
 
                 <div class="flex items-center justify-between pt-4 border-t border-white/5">
@@ -479,7 +494,7 @@
                         <span class="text-xs text-gray-400 uppercase block">Desde</span>
                         <span class="text-2xl font-black text-brand-yellow">-- €</span>
                     </div>
-                    <button onclick="openFormModal('Tratamiento Cerámico', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                    <button onclick="openFormModal('Pulido de Pintura + Tratamiento Cerámico', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita (Pack)</button>
                 </div>
             </div>
         </div>
@@ -499,8 +514,7 @@
             <div id="detailing-exterior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
                 <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
                     <div class="service-slider relative w-full h-full min-h-[260px]">
-                        <img src="img/detailingExteriorBase1.jpg" alt="Detailing Exterior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="img/detailingExteriorBase2.jpg" loading="lazy" alt="Detailing Exterior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="img/detailingExteriorBase1.jpg" loading="lazy" decoding="async" alt="Detailing Exterior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
                     </div>
                     <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
                         Exterior
@@ -536,7 +550,7 @@
             <div id="detailing-interior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
                 <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
                     <div class="service-slider relative w-full h-full min-h-[260px]">
-                        <img src="img/detailingInteriorBase1.jpg" alt="Detailing Interior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                        <img src="img/detailingInteriorBase1.jpg" loading="lazy" decoding="async" alt="Detailing Interior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
                         <img src="img/detailinginterioBase2.jpg" alt="Detailing Interior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                     </div>
                     <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
@@ -578,8 +592,8 @@
         <div id="limpieza-integral" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
             <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
                 <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="img/limpiezaIntegralDetalladaBase1.jpg" loading="lazy" alt="Limpieza Integral 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="img/limpiezaIntegralDetalladaBase2.webp" loading="lazy" alt="Limpieza Integral 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    <img src="img/limpiezaIntegralDetalladaBase1.jpg" loading="lazy" decoding="async" alt="Limpieza Integral 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="img/limpiezaIntegralDetalladaBase2.webp" loading="lazy" decoding="async" alt="Limpieza Integral 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                 </div>
             </div>
             <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
@@ -608,8 +622,8 @@
         <div id="limpieza-basica" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
             <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
                 <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="img/limpiezaBasicaBase1.jpg" loading="lazy" alt="Limpieza Básica 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="img/limpiezaBasicaBase2.jpg" loading="lazy" alt="Limpieza Básica 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    <img src="img/limpiezaBasicaBase1.jpg" loading="lazy" decoding="async" alt="Limpieza Básica 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="img/limpiezaBasicaBase2.jpg" loading="lazy" decoding="async" alt="Limpieza Básica 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                 </div>
             </div>
             <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
@@ -636,7 +650,11 @@
     </section>
 
     <!-- 6. TINTADO DE LUNAS -->
-    <section id="tintado" class="py-20 px-4 max-w-6xl mx-auto w-full border-t border-white/5">
+    <section id="tintado" class="relative py-20 px-4 border-t border-white/5 bg-cover bg-center bg-no-repeat" style="background-image: url('img/tintadoBase.jpg');">
+        <!-- Capa de superposición para contraste y estética -->
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/95 via-brand-dark/90 to-brand-dark/95"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto w-full">
         <div class="text-center mb-10">
             <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Homologación ITV Incluida</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Tintado de Lunas</h2>
@@ -667,7 +685,7 @@
             <!-- Pequeño -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/pequeno.webp" loading="lazy" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/pequeno.webp" loading="lazy" decoding="async" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Pequeño</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
                 </div>
@@ -684,7 +702,7 @@
             <!-- Mediano -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/compacto.webp" loading="lazy" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/compacto.webp" loading="lazy" decoding="async" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Mediano</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
                 </div>
@@ -701,7 +719,7 @@
             <!-- Grande -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/sedan.png" loading="lazy" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/sedan.png" loading="lazy" decoding="async" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Grande</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
                 </div>
@@ -718,7 +736,7 @@
             <!-- 4x4 -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/4x4.png" loading="lazy" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
+                    <img src="img/plantillas_coches/4x4.png" loading="lazy" decoding="async" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
                     <h3 class="font-bold text-lg mb-1">4x4</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
                 </div>
@@ -735,7 +753,7 @@
             <!-- Furgoneta -->
             <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
                 <div>
-                    <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" decoding="async" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
                     <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
                     <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
                 </div>
@@ -758,13 +776,14 @@
                 <strong class="text-white">Trabajamos solo con cita previa.</strong> Para confirmar tu reserva es necesario abonar el <span class="text-brand-yellow font-bold">30%</span> del total del presupuesto.
             </p>
         </div>
+        </div>
     </section>
 
     <!-- PRODUCTOS UTILIZADOS -->
     <section class="py-12 bg-brand-dark border-y border-white/5 text-center">
         <p class="text-xs uppercase tracking-widest text-gray-500 mb-8">Trabajamos con productos de alta gama</p>
         <div class="flex items-center justify-center gap-16 flex-wrap px-8">
-            <img src="img/labocosmetica-logo.png" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition">
+            <img src="img/labocosmetica-logo.png" loading="lazy" decoding="async" alt="Labocosmetica" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition">
         </div>
     </section>
 
@@ -788,7 +807,7 @@
             </p>
 
             <div class="my-8 max-w-2xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                <img src="foto-equipo.jpg" loading="lazy" alt="Equipo Xtream Garage Detailing" class="w-full h-auto object-cover">
+                <img src="foto-equipo.jpg" loading="lazy" decoding="async" alt="Equipo Xtream Garage Detailing" class="w-full h-auto object-cover">
             </div>
 
             <p class="text-gray-400 text-sm">
@@ -871,7 +890,7 @@
             <!-- Botón ver todas en Google -->
             <div class="text-center mt-10">
                 <a href="https://www.google.com/search?sca_esv=2c2cf6cedad07c07&rlz=1C1CHBD_esES1032ES1034&sxsrf=APpeQnsmVzp6ytqpDBK4FDELUG_jRVGJpA:1787952552267&q=reviews+xtreme+garage+detailing+igualada&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_0mRsOA3B4fWku5ZnqUHaQCm0OUkYgtJtup0fCFNobA78dH_LBb93e1FqAhtA6NfA8iDS_M%3D&uds=AJ5uw19_VURuNbF6oQt5fQr0NQ1O5PHxtH2S0Q7A1d1ZCSP3y8XwjZlbqU08MWkjhk2gLQYh_SLQy5bL_5Td9JAr_Ql5EFqjQQRcTyS0-01muBx4J8OVDMq7Z9S3Be1FQWP7TcXN6HOAkIByl62eiW6Z8YcEX7oWbA&sa=X&ved=2ahUKEwiz7oKmosSWAxWWVaQEHVTsGzoQ3PALegQIMxAF&biw=1536&bih=695&dpr=1.25" target="_blank" class="inline-flex items-center gap-3 bg-brand-card hover:bg-white/10 border border-white/10 hover:border-brand-yellow/40 text-white font-bold px-6 py-3 rounded-xl transition">
-                    <img src="https://www.google.com/favicon.ico" alt="Google" class="w-4 h-4">
+                    <img src="https://www.google.com/favicon.ico" loading="lazy" decoding="async" alt="Google" class="w-4 h-4">
                     Ver todas las opiniones en Google
                     <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400"></i>
                 </a>

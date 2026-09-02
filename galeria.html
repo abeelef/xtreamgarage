@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Trabajos | Xtream Garage Detailing Igualada</title>
-    <meta name="description" content="Galería de fotos de nuestros trabajos de detailing, tintado de lunas, PPF y pulido en Igualada.">
+    <meta name="description" content="Galería de fotos de nuestros trabajos de detailing, tintado de lunas, PPF, cerámico y pulido en Igualada.">
     <link rel="icon" href="img/logo.png" type="image/png">
     <!-- Google Fonts: Audiowide -->
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
@@ -31,13 +31,108 @@
             }
         }
     </script>
+
+    <style>
+        body { background-color: #000; }
+
+        /* Resplandor ambiental detrás del título */
+        .glow-bg {
+            background: radial-gradient(circle at 50% 0%, rgba(239,255,17,0.10), transparent 60%);
+        }
+
+        /* BENTO GRID: tamaños variados para una galería con impacto visual */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 160px;
+            grid-auto-flow: dense;
+            gap: 0.85rem;
+        }
+        @media (min-width: 640px) {
+            .bento { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 190px; gap: 1rem; }
+        }
+        @media (min-width: 1024px) {
+            .bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; }
+        }
+
+        .bento-big { grid-column: span 2; grid-row: span 2; }
+        .bento-wide { grid-column: span 2; grid-row: span 1; }
+        .bento-tall { grid-row: span 2; }
+
+        .tile {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: #0d0d0d;
+        }
+        .tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        .tile:hover img {
+            transform: scale(1.08);
+        }
+        .tile::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 45%, transparent 70%);
+            pointer-events: none;
+        }
+        .tile:hover {
+            border-color: rgba(239,255,17,0.5);
+            box-shadow: 0 0 25px rgba(239,255,17,0.12);
+        }
+        .tile-caption {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            padding: 0.9rem 1rem;
+            z-index: 10;
+            transform: translateY(6px);
+            opacity: 0.9;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .tile:hover .tile-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Aparición suave al hacer scroll */
+        .tile {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tile.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Shimmer mientras la imagen no ha cargado */
+        .img-skeleton {
+            background: linear-gradient(100deg, #141414 30%, #1f1f1f 50%, #141414 70%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 150% 0; }
+            100% { background-position: -50% 0; }
+        }
+        .img-skeleton.loaded {
+            animation: none;
+            background: none;
+        }
+    </style>
 </head>
-<body class="bg-brand-dark text-white font-sans antialiased flex flex-col min-h-screen">
+<body class="text-white font-sans antialiased flex flex-col min-h-screen">
 
     <!-- HEADER / NAV -->
-    <header class="fixed top-0 left-0 w-full z-40 bg-brand-dark/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+    <header class="fixed top-0 left-0 w-full z-40 bg-black/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
         <a href="index.html" aria-label="Xtream Garage Detailing">
-            <img src="img/logo.png" alt="Xtream Garage" class="h-9 sm:h-10 w-auto object-contain">
+            <img src="img/logo.png" alt="Xtream Garage" class="h-9 sm:h-10 w-auto object-contain" decoding="async">
         </a>
         <a href="index.html" class="bg-brand-gray hover:bg-white/10 text-white px-4 py-2 rounded-xl text-sm font-semibold transition border border-white/10 flex items-center gap-2">
             <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
@@ -45,66 +140,107 @@
     </header>
 
     <!-- CABECERA GALERÍA -->
-    <section class="pt-32 pb-10 px-4 text-center max-w-4xl mx-auto">
+    <section class="glow-bg pt-32 pb-10 px-4 text-center max-w-4xl mx-auto">
         <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Nuestra Colección</span>
         <h1 class="text-4xl sm:text-5xl font-extrabold uppercase mt-2 mb-4">Galería de Trabajos</h1>
         <p class="text-gray-400 text-sm sm:text-base">Explora los resultados de nuestros procesos de restauración, protección y detallado automotriz en Igualada.</p>
-
-        <!-- FILTROS POR CATEGORÍA -->
-        <div class="flex flex-wrap justify-center gap-2 mt-8">
-            <button onclick="filterGallery('all', event)" class="filter-btn active bg-brand-yellow text-black font-bold px-4 py-2 rounded-xl text-xs uppercase transition">Todos</button>
-            <button onclick="filterGallery('detailing', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Detailing</button>
-            <button onclick="filterGallery('tintado', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Tintado</button>
-            <button onclick="filterGallery('ceramico', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Cerámico</button>
-            <button onclick="filterGallery('ppf', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">PPF</button>
-            <button onclick="filterGallery('pulido', event)" class="filter-btn bg-brand-card hover:bg-white/10 text-gray-300 font-bold px-4 py-2 rounded-xl text-xs uppercase transition border border-white/10">Pulido</button>
-        </div>
     </section>
 
-    <!-- GRID DE FOTOS DE LA GALERÍA -->
+    <!-- BENTO GRID DE FOTOS -->
     <main class="py-8 px-4 max-w-7xl mx-auto w-full flex-grow">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
-            
-            <!-- Foto Ejemplo 1 -->
-            <div class="gallery-item detailing relative group overflow-hidden rounded-2xl border border-white/10 bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('bmw-naranja.jpg', 'Detailing BMW Naranja')">
-                <img src="bmw-naranja.jpg" alt="Detailing BMW Naranja" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-                    <div>
-                        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Detailing</span>
-                        <h3 class="text-white text-sm font-bold">BMW Naranja</h3>
-                    </div>
+        <div class="bento" id="gallery-grid">
+
+            <!-- Lamborghini: pieza destacada grande -->
+            <div class="tile bento-big cursor-pointer" onclick="openLightbox('img/galeria/lambo.jpg')">
+                <img src="img/galeria/lambo.webp" alt="Detailing Lamborghini" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <h3 class="text-white text-base font-bold">Lamborghini</h3>
                 </div>
             </div>
 
-            <!-- Foto Ejemplo 2 -->
-            <div class="gallery-item tintado relative group overflow-hidden rounded-2xl border border-white/10 bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('tintado-audi.jpg', 'Tintado de Lunas Audi')">
-                <img src="tintado-audi.jpg" alt="Tintado de Lunas Audi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-                    <div>
-                        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Tintado</span>
-                        <h3 class="text-white text-sm font-bold">Audi RS3</h3>
-                    </div>
+            <!-- Antes / Después Pulido BMW: mismo tamaño, en pareja -->
+            <div class="tile bento-tall cursor-pointer" onclick="openLightbox('img/galeria/despuespulidobmw.jpg')">
+                <img src="img/galeria/despuespulidobmw.jpg" alt="Antes del Pulido - BMW" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <span class="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-white font-bold text-[10px] uppercase px-2.5 py-1 rounded-lg border border-white/10 pointer-events-none z-20">Antes</span>
+                <div class="tile-caption">
+                    <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Pulido de Pintura</span>
+                    <h3 class="text-white text-base font-bold">Antes del Pulido - BMW</h3>
                 </div>
             </div>
 
-            <!-- Foto Ejemplo 3 -->
-            <div class="gallery-item ceramico relative group overflow-hidden rounded-2xl border border-white/10 bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('ceramico-porsche.jpg', 'Tratamiento Cerámico Porsche')">
-                <img src="ceramico-porsche.jpg" alt="Tratamiento Cerámico Porsche" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-                    <div>
-                        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Cerámico</span>
-                        <h3 class="text-white text-sm font-bold">Porsche 911</h3>
-                    </div>
+            <div class="tile bento-tall cursor-pointer" onclick="openLightbox('img/galeria/antespulidobmw.jpg')">
+                <img src="img/galeria/antespulidobmw.jpg" alt="Después del Pulido - BMW" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <span class="absolute top-3 left-3 bg-brand-yellow/90 backdrop-blur-md text-black font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-lg border border-black/10 pointer-events-none z-20">Después</span>
+                <div class="tile-caption">
+                    <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Pulido de Pintura</span>
+                    <h3 class="text-white text-base font-bold">Después del Pulido - BMW</h3>
+                </div>
+            </div>
+
+            <div class="tile bento-tall cursor-pointer" onclick="openLightbox('img/galeria/interiornaranja.jpg')">
+                <img src="img/galeria/interiornaranja.jpg" alt="Detailing Interior Naranja" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <h3 class="text-white text-sm font-bold">Interior Naranja</h3>
+                </div>
+            </div>
+
+            <div class="tile cursor-pointer" onclick="openLightbox('img/galeria/porsche.jpg')">
+                <img src="img/galeria/porsche.webp" alt="Detailing Porsche" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <h3 class="text-white text-sm font-bold">Porsche</h3>
+                </div>
+            </div>
+
+            <div class="tile cursor-pointer" onclick="openLightbox('img/galeria/bmw.jpg')">
+                <img src="img/galeria/bmw.webp" alt="Detailing BMW" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <h3 class="text-white text-sm font-bold">BMW</h3>
+                </div>
+            </div>
+
+            <div class="tile cursor-pointer" onclick="openLightbox('img/galeria/interiorazul.jpg')">
+                <img src="img/galeria/interiorazul.jpg" alt="Detailing Interior Azul" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">Detailing Interior</span>
+                    <h3 class="text-white text-sm font-bold">Interior Azul</h3>
+                </div>
+            </div>
+
+            <div class="tile cursor-pointer" onclick="openLightbox('img/galeria/interiorbmwnegro.jpg')">
+                <img src="img/galeria/interiorbmwnegro.webp" alt="Detailing Interior BMW Negro" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <h3 class="text-white text-sm font-bold">Interior BMW</h3>
+                </div>
+            </div>
+
+            <div class="tile bento-wide cursor-pointer" onclick="openLightbox('img/galeria/pantallappf.jpg')">
+                <img src="img/galeria/pantallappf.jpg" alt="Instalación de PPF" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">PPF</span>
+                    <h3 class="text-white text-sm font-bold">Instalación de PPF</h3>
+                </div>
+            </div>
+
+            <div class="tile bento-wide cursor-pointer" onclick="openLightbox('img/galeria/trabajando1.jpg')">
+                <img src="img/galeria/trabajando1.jpg" alt="Nuestro equipo trabajando" loading="lazy" decoding="async" class="img-skeleton" onload="this.classList.add('loaded')">
+                <div class="tile-caption">
+                    <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-wider block">En el Taller</span>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <!-- MODAL LIGHTBOX (ZOOM A LA FOTO) -->
+    <!-- MODAL LIGHTBOX (ZOOM A LA FOTO, CON NAVEGACIÓN) -->
     <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-yellow">
             <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button onclick="prevLightbox(event)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-brand-yellow p-3">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextLightbox(event)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-brand-yellow p-3">
+            <i class="fa-solid fa-chevron-right"></i>
         </button>
         <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
             <img id="lightbox-img" src="" alt="Foto ampliada" class="max-w-full max-h-[75vh] object-contain rounded-xl border border-white/10">
@@ -118,41 +254,69 @@
         <p class="text-[10px] text-gray-600 tracking-wider uppercase">Created by Abel E. F.</p>
     </footer>
 
-    <!-- JS PARA FILTROS Y LIGHTBOX -->
+    <!-- JS PARA LIGHTBOX CON NAVEGACIÓN -->
     <script>
-        function filterGallery(category, evt) {
-            const items = document.querySelectorAll('.gallery-item');
-            const buttons = document.querySelectorAll('.filter-btn');
+        const galleryPhotos = Array.from(document.querySelectorAll('#gallery-grid > .tile[onclick] img')).map(img => ({
+            src: img.getAttribute('src'),
+            caption: img.getAttribute('alt')
+        }));
+        let currentLightboxIndex = 0;
 
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-yellow', 'text-black');
-                btn.classList.add('bg-brand-card', 'text-gray-300');
-            });
-
-            if (evt && evt.target) {
-                evt.target.classList.remove('bg-brand-card', 'text-gray-300');
-                evt.target.classList.add('bg-brand-yellow', 'text-black');
-            }
-
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        function openLightbox(src) {
+            currentLightboxIndex = galleryPhotos.findIndex(p => p.src === src);
+            showLightboxPhoto();
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-        function openLightbox(src, title) {
-            const lightbox = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox-caption').innerText = title;
-            lightbox.classList.remove('hidden');
+        function showLightboxPhoto() {
+            const photo = galleryPhotos[currentLightboxIndex];
+            document.getElementById('lightbox-img').src = photo.src;
+            document.getElementById('lightbox-caption').innerText = photo.caption;
+        }
+
+        function nextLightbox(e) {
+            e.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryPhotos.length;
+            showLightboxPhoto();
+        }
+
+        function prevLightbox(e) {
+            e.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+            showLightboxPhoto();
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = '';
         }
+
+        document.addEventListener('keydown', e => {
+            if (document.getElementById('lightbox').classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextLightbox(e);
+            if (e.key === 'ArrowLeft') prevLightbox(e);
+        });
+
+        // Cerrar clicando fuera de la imagen
+        document.getElementById('lightbox').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+    </script>
+
+    <!-- APARICIÓN SUAVE AL HACER SCROLL (ligero, sin librerías) -->
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('#gallery-grid .tile').forEach(tile => revealObserver.observe(tile));
     </script>
 </body>
 </html>
