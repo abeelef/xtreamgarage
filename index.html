@@ -115,15 +115,16 @@
                         <span>Los Servicios</span>
                         <i id="services-chevron" class="fa-solid fa-chevron-down text-sm transition-transform"></i>
                     </button>
+                    <!-- Menú reordenado -->
                     <div id="services-submenu" class="hidden pl-4 mt-2 space-y-2 border-l border-brand-yellow/30 text-sm text-gray-300">
-                        <a href="#tintado" class="sidebar-link block hover:text-white transition">Tintado de Lunas</a>
-                        <a href="#detailing-exterior" class="sidebar-link block hover:text-white transition">Detailing Exterior</a>
-                        <a href="#detailing-interior" class="sidebar-link block hover:text-white transition">Detailing Interior</a>
-                        <a href="#ceramico" class="sidebar-link block hover:text-white transition">Tratamiento Cerámico</a>
-                        <a href="#limpieza-integral" class="sidebar-link block hover:text-white transition">Limpieza Integral Detallada</a>
-                        <a href="#limpieza-basica" class="sidebar-link block hover:text-white transition">Limpieza Básica</a>
                         <a href="#ppf" class="sidebar-link block hover:text-white transition">PPF (Paint Protection Film)</a>
                         <a href="#pulido" class="sidebar-link block hover:text-white transition">Pulido de Pintura</a>
+                        <a href="#ceramico" class="sidebar-link block hover:text-white transition">Tratamiento Cerámico</a>
+                        <a href="#detailing-exterior" class="sidebar-link block hover:text-white transition">Detailing Exterior</a>
+                        <a href="#detailing-interior" class="sidebar-link block hover:text-white transition">Detailing Interior</a>
+                        <a href="#limpieza-integral" class="sidebar-link block hover:text-white transition">Limpieza Integral Detallada</a>
+                        <a href="#limpieza-basica" class="sidebar-link block hover:text-white transition">Limpieza Básica</a>
+                        <a href="#tintado" class="sidebar-link block hover:text-white transition">Tintado de Lunas</a>
                     </div>
                 </div>
 
@@ -182,7 +183,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#tintado"
+                <a href="#ppf"
                    class="inline-block bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-lg">
                     Ver Servicios y Tarifas
                 </a>
@@ -203,345 +204,160 @@
             <h2 class="text-2xl sm:text-3xl font-bold uppercase mb-2">Resultado Real en Directo</h2>
             <p class="text-gray-400 mb-8 text-sm">Arrastra para ver el cambio antes y después de nuestros tratamientos en Igualada.</p>
 
-            <div id="before-after-container" class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-brand-card flex items-center justify-center">
-                <span class="text-gray-500 text-sm">[ Antes y Después va aquí ]</span>
+            <!-- Comparador Interactivo Antes y Después -->
+            <div id="before-after-container" class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-brand-card select-none cursor-ew-resize">
+                <!-- Imagen Después (Fondo) -->
+                <img src="img/antesdespues/despuesInterior.jpg" alt="Después" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                
+                <!-- Capa Imagen Antes (Recortada) -->
+                <div id="ba-before-wrapper" class="absolute inset-0 w-1/2 h-full overflow-hidden pointer-events-none">
+                    <img id="ba-before-img" src="img/antesdespues/antesInterior.jpg" alt="Antes" class="absolute top-0 left-0 h-full object-cover max-w-none">
+                </div>
+
+                <!-- Etiquetas de Antes y Después -->
+                <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white font-bold text-xs uppercase px-3 py-1.5 rounded-lg border border-white/10 pointer-events-none z-10">Antes</span>
+                <span class="absolute top-4 right-4 bg-brand-yellow/90 backdrop-blur-md text-black font-extrabold text-xs uppercase px-3 py-1.5 rounded-lg border border-black/10 pointer-events-none z-10">Después</span>
+
+                <!-- Línea y Tirador Deslizable -->
+                <div id="ba-handle" class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-brand-yellow -translate-x-1/2 z-20 pointer-events-none">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 bg-brand-yellow text-black rounded-full flex items-center justify-center shadow-lg border-2 border-black text-xs">
+                        <i class="fa-solid fa-arrows-left-right"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- TINTADO DE LUNAS -->
-    <section id="tintado" class="py-20 px-4 max-w-6xl mx-auto w-full">
-        <div class="text-center mb-10">
-            <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Homologación ITV Incluida</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Tintado de Lunas</h2>
-            <p class="text-gray-400 max-w-xl mx-auto">Láminas de alta protección térmica y privacidad adaptadas según el tamaño del vehículo.</p>
-        </div>
 
-        <!-- SELECTOR DE TIPO DE LÁMINA -->
-        <div class="flex justify-center mb-10">
-            <div class="inline-flex bg-brand-card border border-white/10 rounded-2xl p-1.5 gap-1.5">
-                <button id="tab-basica"
-                    onclick="selectTintadoTab('basica')"
-                    class="tintado-tab active-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-0.5">
-                    <span>Lámina Básica</span>
-                    <span class="text-[10px] font-normal opacity-70">Hasta 15 años de garantía</span>
-                </button>
-                <button id="tab-ceramica"
-                    onclick="selectTintadoTab('ceramica')"
-                    class="tintado-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-0.5">
-                    <span>Lámina Cerámica</span>
-                    <span class="text-[10px] font-normal opacity-70">Alta gama · máximo rendimiento</span>
-                </button>
-            </div>
-        </div>
+    <!-- ORDEN DE SERVICIOS: 1. PPF, 2. PULIDO, 3. TRATAMIENTO CERAMICO, 4. DETAILING, 5. LIMPIEZAS, 6. TINTADO -->
 
-        <!-- GRID DE TAMAÑOS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
-            <!-- Pequeño -->
-            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
-                <div>
-                    <img src="img/plantillas_coches/pequeno.webp" loading="lazy" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
-                    <h3 class="font-bold text-lg mb-1">Pequeño</h3>
-                    <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
+    <!-- 1. PPF (Paint Protection Film) -->
+    <section id="ppf" class="relative py-20 px-4 border-t border-white/5 bg-cover bg-center bg-no-repeat" style="background-image: url('img/ppfBase.jpg');">
+        <!-- Capa de superposición para contraste y estética -->
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/95 via-brand-dark/90 to-brand-dark/95"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto w-full">
+            <div class="text-center mb-12">
+                <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Escudo de Protección Físico</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-4">Instalación de PPF utilizando las mejores marcas del mercado</h2>
+                
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
+                    <span class="bg-brand-dark/80 backdrop-blur-sm border border-brand-yellow/30 text-brand-yellow px-4 py-2 rounded-full text-xs font-bold uppercase"><i class="fa-solid fa-check mr-1.5"></i>Acabado invisible</span>
+                    <span class="bg-brand-dark/80 backdrop-blur-sm border border-brand-yellow/30 text-brand-yellow px-4 py-2 rounded-full text-xs font-bold uppercase"><i class="fa-solid fa-check mr-1.5"></i>Autoregenerativo</span>
+                    <span class="bg-brand-dark/80 backdrop-blur-sm border border-brand-yellow/30 text-brand-yellow px-4 py-2 rounded-full text-xs font-bold uppercase"><i class="fa-solid fa-check mr-1.5"></i>Hasta 200 micras de protección</span>
+                    <span class="bg-brand-dark/80 backdrop-blur-sm border border-brand-yellow/30 text-brand-yellow px-4 py-2 rounded-full text-xs font-bold uppercase"><i class="fa-solid fa-check mr-1.5"></i>Acabado satinado / mate</span>
                 </div>
-                <div class="pt-3 border-t border-white/5 space-y-3">
+
+                <p class="text-gray-300 max-w-3xl mx-auto text-sm leading-relaxed mb-10">
+                    La solución definitiva para proteger la pintura de tu vehículo. El Paint Protection Film es una lámina de poliuretano premium que evita daños por impactos de piedras, arañazos y contaminantes, conservando la estética original y aumentando el valor de reventa de tu coche.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Protección Básica -->
+                <div class="bg-brand-card/90 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
+                        <h3 class="font-bold text-xl mb-2 text-white uppercase">Protección Básica</h3>
+                        <p class="text-sm text-gray-400 mb-4">Parachoques delantero + Faros.</p>
                     </div>
-                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
-                        data-size="Pequeño">Pedir Cita</button>
-                </div>
-            </div>
-
-            <!-- Mediano -->
-            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
-                <div>
-                    <img src="img/plantillas_coches/compacto.webp" loading="lazy" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
-                    <h3 class="font-bold text-lg mb-1">Mediano</h3>
-                    <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
-                </div>
-                <div class="pt-3 border-t border-white/5 space-y-3">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
-                    </div>
-                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
-                        data-size="Mediano">Pedir Cita</button>
-                </div>
-            </div>
-
-            <!-- Grande -->
-            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
-                <div>
-                    <img src="img/plantillas_coches/sedan.png" loading="lazy" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
-                    <h3 class="font-bold text-lg mb-1">Grande</h3>
-                    <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
-                </div>
-                <div class="pt-3 border-t border-white/5 space-y-3">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
-                    </div>
-                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
-                        data-size="Grande">Pedir Cita</button>
-                </div>
-            </div>
-
-            <!-- 4x4 -->
-            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
-                <div>
-                    <img src="img/plantillas_coches/4x4.png" loading="lazy" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
-                    <h3 class="font-bold text-lg mb-1">4x4</h3>
-                    <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
-                </div>
-                <div class="pt-3 border-t border-white/5 space-y-3">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
-                    </div>
-                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
-                        data-size="4x4">Pedir Cita</button>
-                </div>
-            </div>
-
-            <!-- Furgoneta -->
-            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
-                <div>
-                    <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
-                    <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
-                    <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
-                </div>
-                <div class="pt-3 border-t border-white/5 space-y-3">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-basica="--" data-ceramica="--">-- €</span>
-                    </div>
-                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
-                        data-size="Furgoneta">Pedir Cita</button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- DETAILING PROFESIONAL DIVIDIDO EN EXTERIOR E INTERIOR -->
-    <section class="py-20 px-4 bg-brand-gray/20 border-t border-white/5">
-        <div class="max-w-6xl mx-auto space-y-12">
-
-            <div class="text-center">
-                <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Servicios de Alta Gama</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1">Detailing Profesional</h2>
-                <p class="text-gray-400 text-sm mt-2">Restauración, conservación y reacondicionamiento exhaustivo.</p>
-            </div>
-
-            <!-- DETAILING EXTERIOR -->
-            <div id="detailing-exterior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
-                <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
-                    <div class="service-slider relative w-full h-full min-h-[260px]">
-                        <img src="foto-detailing-exterior-1.jpg" alt="Detailing Exterior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-detailing-exterior-2.jpg" loading="lazy" alt="Detailing Exterior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="foto-detailing-exterior-3.jpg" loading="lazy" alt="Detailing Exterior 3" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="foto-detailing-exterior-4.jpg" loading="lazy" alt="Detailing Exterior 4" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
-                    <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
-                        Exterior
-                    </div>
-                </div>
-                <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
-                    <div class="space-y-3">
-                        <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider"><i class="fa-solid fa-car mr-1"></i> Acondicionamiento Exterior</span>
-                        <h3 class="text-2xl font-extrabold uppercase text-white">Detailing Exterior</h3>
-                        <p class="text-gray-300 text-sm">Tratamiento de regeneración del aspecto exterior de la carrocería, garantizando un acabado libre de contaminación y máximo brillo.</p>
-
-                        <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
-                            <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
-                            <ul class="text-xs text-gray-400 space-y-1">
-                                <li>• Descontaminado férrico y químico de la pintura</li>
-                                <li>• Limpieza detallada de llantas, pasos de rueda y gargantas</li>
-                                <li>• Nutrición e hidratación de plásticos y gomas exteriores</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div class="pt-4 border-t border-white/5 space-y-4 mt-auto">
                         <div>
                             <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                            <span class="text-2xl font-black text-brand-yellow">400 € <span class="text-xs font-normal text-gray-400 uppercase">IVA incl.</span></span>
                         </div>
-                        <button onclick="openFormModal('Detailing Exterior', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                        <button onclick="openFormModal('PPF Protección Básica', '400')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-3 rounded-xl transition uppercase">Pedir Cita</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- DETAILING INTERIOR -->
-            <div id="detailing-interior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
-                <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
-                    <div class="service-slider relative w-full h-full min-h-[260px]">
-                        <img src="foto-detailing-interior-1.jpg" alt="Detailing Interior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="foto-detailing-interior-2.jpg" alt="Detailing Interior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                <!-- Frontal Completo -->
+                <div class="bg-brand-card/90 backdrop-blur-md p-6 rounded-2xl border border-brand-yellow/50 hover:border-brand-yellow transition flex flex-col justify-between relative shadow-[0_0_15px_rgba(239,255,17,0.1)]">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-[10px] uppercase tracking-wider whitespace-nowrap shadow-lg z-10">
+                        ¡Servicio más solicitado!
                     </div>
-                    <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
-                        Interior
+                    <div class="mt-2">
+                        <h3 class="font-bold text-xl mb-2 text-white uppercase">Frontal Completo</h3>
+                        <p class="text-sm text-gray-400 mb-4">Parachoques delantero + Faros + Capó + Aletas + Retrovisores.</p>
                     </div>
-                </div>
-                <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
-                    <div class="space-y-3">
-                        <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider"><i class="fa-solid fa-couch mr-1"></i> Restauración del Habitáculo</span>
-                        <h3 class="text-2xl font-extrabold uppercase text-white">Detailing Interior</h3>
-                        <p class="text-gray-300 text-sm">Limpieza minuciosa y tratamiento de conservación de todos los materiales interiores para recuperar el aspecto y olor a vehículo nuevo.</p>
-
-                        <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
-                            <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
-                            <ul class="text-xs text-gray-400 space-y-1">
-                                <li>• Nutrición y tratamiento protector para tapicerías de piel/cuero</li>
-                                <li>• Limpieza por inyección-extracción en tapicerías de tela y alfombras</li>
-                                <li>• Desinfección técnica de conductos de aire acondicionado y plásticos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div class="pt-4 border-t border-white/5 space-y-4 mt-auto">
                         <div>
                             <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                            <span class="text-2xl font-black text-brand-yellow">1400 € <span class="text-xs font-normal text-gray-400 uppercase">IVA incl.</span></span>
                         </div>
-                        <button onclick="openFormModal('Detailing Interior', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                        <button onclick="openFormModal('PPF Frontal Completo', '1400')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-3 rounded-xl transition uppercase">Pedir Cita</button>
                     </div>
                 </div>
-            </div>
 
+                <!-- Zonas de impacto -->
+                <div class="bg-brand-card/90 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-white uppercase">Zonas de Impacto</h3>
+                        <p class="text-sm text-gray-400 mb-4">Todas las piezas zonas frontal + Taloneras.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 space-y-4 mt-auto">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">1700 € <span class="text-xs font-normal text-gray-400 uppercase">IVA incl.</span></span>
+                        </div>
+                        <button onclick="openFormModal('PPF Zonas de Impacto', '1700')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-3 rounded-xl transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+
+                <!-- Coche Completo -->
+                <div class="bg-brand-card/90 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-white uppercase">Coche Completo</h3>
+                        <p class="text-sm text-gray-400 mb-4">Protección integral de toda la carrocería. Evita cualquier arañazo o impacto en toda la superficie del vehículo, facilitando además su lavado y mantenimiento.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 space-y-4 mt-auto">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">4000 € <span class="text-xs font-normal text-gray-400 uppercase">IVA incl.</span></span>
+                        </div>
+                        <button onclick="openFormModal('PPF Coche Completo', '4000')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-3 rounded-xl transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+
+                <!-- Proteccion Interior -->
+                <div class="bg-brand-card/90 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-brand-yellow transition flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-white uppercase">Protección Interior</h3>
+                        <p class="text-sm text-gray-400 mb-4">Aplicable en molduras, piezas de aluminio, pantallas, piano black, etc. <br><br><span class="text-brand-yellow font-bold">Beneficios:</span> Evita microarañazos típicos del uso diario, roces, marcas de huellas y desgaste prematuro de los materiales interiores.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 space-y-4 mt-auto">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">200 € <span class="text-xs font-normal text-gray-400 uppercase">IVA incl.</span></span>
+                        </div>
+                        <button onclick="openFormModal('PPF Protección Interior', '200')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-3 rounded-xl transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+
+                <!-- TESLA Oferta Especial -->
+                <div class="bg-brand-card/90 backdrop-blur-md p-6 rounded-2xl border border-brand-yellow/50 hover:border-brand-yellow transition flex flex-col justify-between relative shadow-[0_0_15px_rgba(239,255,17,0.1)]">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-[10px] uppercase tracking-wider whitespace-nowrap shadow-lg z-10">
+                        ¡Servicio más buscado!
+                    </div>
+                    <div class="mt-2">
+                        <h3 class="font-bold text-xl mb-2 text-white uppercase">Oferta Especial TESLA</h3>
+                        <p class="text-sm text-gray-400 mb-4">Tarifa exclusiva para Tesla Model Y y Tesla Model 3.</p>
+                        <ul class="text-sm text-gray-300 space-y-2 mb-4">
+                            <li class="flex justify-between border-b border-white/5 pb-1"><span>Frontal completo:</span> <span class="text-brand-yellow font-bold">1450 €</span></li>
+                            <li class="flex justify-between border-b border-white/5 pb-1"><span>Coche completo:</span> <span class="text-brand-yellow font-bold">3500 €</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 space-y-4 mt-auto">
+                        <button onclick="openFormModal('PPF Oferta Especial TESLA', '1450')" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-3 rounded-xl transition uppercase">Pedir Cita para Tesla</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- FICHAS DE OTROS SERVICIOS CON IMAGEN INDIVIDUAL/CARRUSEL -->
-    <section class="py-20 px-4 max-w-6xl mx-auto space-y-8">
-
-        <!-- Tratamiento Cerámico -->
-        <div id="ceramico" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
-            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
-                <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="foto-ceramico-1.jpg" loading="lazy" alt="Tratamiento Cerámico 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="foto-ceramico-2.jpg" loading="lazy" alt="Tratamiento Cerámico 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                </div>
-            </div>
-            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
-                <div class="space-y-3">
-                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Protección de Pintura</span>
-                    <h3 class="text-2xl font-extrabold uppercase text-white">Tratamiento Cerámico</h3>
-                    <p class="text-gray-300 text-sm">Recubrimiento cerámico que protege el barniz contra radiación UV, excrementos de aves, restos de insectos y suciedad, aportando un brillo cristalino e hidrofobia extrema.</p>
-
-                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
-                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
-                        <p class="text-xs text-gray-400">• Lavado y descontaminado previo + Pulido de corrección + Aplicación de sellador cerámico de alta durabilidad en carrocería.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between pt-4 border-t border-white/5">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                    </div>
-                    <button onclick="openFormModal('Tratamiento Cerámico', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Limpieza Integral Detallada -->
-        <div id="limpieza-integral" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
-            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
-                <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="foto-limpieza-integral-1.jpg" loading="lazy" alt="Limpieza Integral 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="foto-limpieza-integral-2.jpg" loading="lazy" alt="Limpieza Integral 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                </div>
-            </div>
-            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
-                <div class="space-y-3">
-                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Higiene Completa</span>
-                    <h3 class="text-2xl font-extrabold uppercase text-white">Limpieza Integral Detallada</h3>
-                    <p class="text-gray-300 text-sm">Limpieza a fondo con maquinaria profesional para recuperar la frescura y la estética de origen en cada rincón del habitáculo.</p>
-
-                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
-                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
-                        <p class="text-xs text-gray-400">• Limpieza con inyección-extracción de asientos y alfombrillas + Detallado de salpicadero, consola central, maletero y cristales.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between pt-4 border-t border-white/5">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                    </div>
-                    <button onclick="openFormModal('Limpieza Integral Detallada', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Limpieza Básica -->
-        <div id="limpieza-basica" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
-            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
-                <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="foto-limpieza-basica-1.jpg" loading="lazy" alt="Limpieza Básica 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="foto-limpieza-basica-2.jpg" loading="lazy" alt="Limpieza Básica 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                </div>
-            </div>
-            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
-                <div class="space-y-3">
-                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Mantenimiento Periódico</span>
-                    <h3 class="text-2xl font-extrabold uppercase text-white">Limpieza Básica</h3>
-                    <p class="text-gray-300 text-sm">Servicio de acondicionamiento seguro contra arañazos para mantener tu vehículo siempre impecable.</p>
-
-                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
-                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
-                        <p class="text-xs text-gray-400">• Lavado manual seguro exterior con champú neutro + Aspirado de habitáculo y acondicionamiento básico de llantas y neumáticos.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between pt-4 border-t border-white/5">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                    </div>
-                    <button onclick="openFormModal('Limpieza Básica', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- PPF (Paint Protection Film) -->
-        <div id="ppf" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
-            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
-                <div class="service-slider relative w-full h-full min-h-[220px]">
-                    <img src="foto-ppf-1.jpg" loading="lazy" alt="PPF 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                    <img src="foto-ppf-2.jpg" loading="lazy" alt="PPF 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                </div>
-            </div>
-            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
-                <div class="space-y-3">
-                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Escudo de Protección Físico</span>
-                    <h3 class="text-2xl font-extrabold uppercase text-white">PPF (Paint Protection Film)</h3>
-                    <p class="text-gray-300 text-sm">Lámina de poliuretano transparente de calidad premium que protege la pintura contra chinazos de carretera y rozaduras.</p>
-
-                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
-                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
-                        <p class="text-xs text-gray-400">• Instalación de film transparente autocurativo en frontal completo o vehículo entero según el paquete seleccionado.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between pt-4 border-t border-white/5">
-                    <div>
-                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
-                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
-                    </div>
-                    <button onclick="openFormModal('PPF (Paint Protection Film)', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- PULIDO DE PINTURA — con separación por tamaño como Tintado -->
-    <section id="pulido" class="py-20 px-4 max-w-6xl mx-auto w-full">
+    <!-- 2. PULIDO DE PINTURA -->
+    <section id="pulido" class="py-20 px-4 max-w-6xl mx-auto w-full border-t border-white/5">
         <div class="text-center mb-12">
             <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Corrección de Pintura</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Pulido de Pintura</h2>
@@ -630,10 +446,319 @@
             </div>
         </div>
 
-        <!-- Nota informativa debajo del grid -->
         <div class="mt-8 bg-brand-card border border-white/10 rounded-2xl p-5 text-sm text-gray-400 text-center">
             <i class="fa-solid fa-circle-info text-brand-yellow mr-2"></i>
             El precio incluye: <span class="text-white">medición de espesor de laca</span> + <span class="text-white">pulido en 1, 2 o 3 pasos</span> según corrección necesaria + <span class="text-white">capa protectora final</span>.
+        </div>
+    </section>
+
+    <!-- 3. TRATAMIENTO CERÁMICO -->
+    <section class="py-20 px-4 max-w-6xl mx-auto space-y-8 border-t border-white/5">
+        <!-- Tratamiento Cerámico -->
+        <div id="ceramico" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-ceramico-1.jpg" loading="lazy" alt="Tratamiento Cerámico 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-ceramico-2.jpg" loading="lazy" alt="Tratamiento Cerámico 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Protección de Pintura</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Tratamiento Cerámico</h3>
+                    <p class="text-gray-300 text-sm">Recubrimiento cerámico que protege el barniz contra radiación UV, excrementos de aves, restos de insectos y suciedad, aportando un brillo cristalino e hidrofobia extrema.</p>
+
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Lavado y descontaminado previo + Pulido de corrección + Aplicación de sellador cerámico de alta durabilidad en carrocería.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Tratamiento Cerámico', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DETAILING PROFESIONAL (EXTERIOR E INTERIOR) -->
+    <section class="py-20 px-4 bg-brand-gray/20 border-t border-white/5">
+        <div class="max-w-6xl mx-auto space-y-12">
+
+            <div class="text-center">
+                <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Servicios de Alta Gama</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1">Detailing Profesional</h2>
+                <p class="text-gray-400 text-sm mt-2">Restauración, conservación y reacondicionamiento exhaustivo.</p>
+            </div>
+
+            <!-- DETAILING EXTERIOR -->
+            <div id="detailing-exterior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
+                    <div class="service-slider relative w-full h-full min-h-[260px]">
+                        <img src="foto-detailing-exterior-1.jpg" alt="Detailing Exterior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                        <img src="foto-detailing-exterior-2.jpg" loading="lazy" alt="Detailing Exterior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="foto-detailing-exterior-3.jpg" loading="lazy" alt="Detailing Exterior 3" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="foto-detailing-exterior-4.jpg" loading="lazy" alt="Detailing Exterior 4" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    </div>
+                    <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
+                        Exterior
+                    </div>
+                </div>
+                <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                    <div class="space-y-3">
+                        <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider"><i class="fa-solid fa-car mr-1"></i> Acondicionamiento Exterior</span>
+                        <h3 class="text-2xl font-extrabold uppercase text-white">Detailing Exterior</h3>
+                        <p class="text-gray-300 text-sm">Tratamiento de regeneración del aspecto exterior de la carrocería, garantizando un acabado libre de contaminación y máximo brillo.</p>
+
+                        <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                            <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                            <ul class="text-xs text-gray-400 space-y-1">
+                                <li>• Descontaminado férrico y químico de la pintura</li>
+                                <li>• Limpieza detallada de llantas, pasos de rueda y gargantas</li>
+                                <li>• Nutrición e hidratación de plásticos y gomas exteriores</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        </div>
+                        <button onclick="openFormModal('Detailing Exterior', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILING INTERIOR -->
+            <div id="detailing-interior" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-1/3 min-h-[260px] relative overflow-hidden">
+                    <div class="service-slider relative w-full h-full min-h-[260px]">
+                        <img src="foto-detailing-interior-1.jpg" alt="Detailing Interior 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                        <img src="foto-detailing-interior-2.jpg" alt="Detailing Interior 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    </div>
+                    <div class="absolute top-4 left-4 z-10 bg-brand-yellow text-black font-extrabold px-3 py-1 rounded-md text-xs uppercase">
+                        Interior
+                    </div>
+                </div>
+                <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                    <div class="space-y-3">
+                        <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider"><i class="fa-solid fa-couch mr-1"></i> Restauración del Habitáculo</span>
+                        <h3 class="text-2xl font-extrabold uppercase text-white">Detailing Interior</h3>
+                        <p class="text-gray-300 text-sm">Limpieza minuciosa y tratamiento de conservación de todos los materiales interiores para recuperar el aspecto y olor a vehículo nuevo.</p>
+
+                        <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                            <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                            <ul class="text-xs text-gray-400 space-y-1">
+                                <li>• Nutrición y tratamiento protector para tapicerías de piel/cuero</li>
+                                <li>• Limpieza por inyección-extracción en tapicerías de tela y alfombras</li>
+                                <li>• Desinfección técnica de conductos de aire acondicionado y plásticos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                            <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                        </div>
+                        <button onclick="openFormModal('Detailing Interior', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. LIMPIEZAS -->
+    <section class="py-20 px-4 max-w-6xl mx-auto space-y-8 border-t border-white/5">
+        <!-- Limpieza Integral Detallada -->
+        <div id="limpieza-integral" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-limpieza-integral-1.jpg" loading="lazy" alt="Limpieza Integral 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-limpieza-integral-2.jpg" loading="lazy" alt="Limpieza Integral 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Higiene Completa</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Limpieza Integral Detallada</h3>
+                    <p class="text-gray-300 text-sm">Limpieza a fondo con maquinaria profesional para recuperar la frescura y la estética de origen en cada rincón del habitáculo.</p>
+
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Limpieza con inyección-extracción de asientos y alfombrillas + Detallado de salpicadero, consola central, maletero y cristales.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Limpieza Integral Detallada', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limpieza Básica -->
+        <div id="limpieza-basica" class="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/3 min-h-[220px] relative overflow-hidden">
+                <div class="service-slider relative w-full h-full min-h-[220px]">
+                    <img src="foto-limpieza-basica-1.jpg" loading="lazy" alt="Limpieza Básica 1" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                    <img src="foto-limpieza-basica-2.jpg" loading="lazy" alt="Limpieza Básica 2" class="slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
+            </div>
+            <div class="lg:w-2/3 p-6 sm:p-8 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                    <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Mantenimiento Periódico</span>
+                    <h3 class="text-2xl font-extrabold uppercase text-white">Limpieza Básica</h3>
+                    <p class="text-gray-300 text-sm">Servicio de acondicionamiento seguro contra arañazos para mantener tu vehículo siempre impecable.</p>
+
+                    <div class="bg-brand-dark/60 p-4 rounded-xl border border-white/5">
+                        <span class="text-xs font-bold text-white block mb-1">¿Qué incluye el servicio?</span>
+                        <p class="text-xs text-gray-400">• Lavado manual seguro exterior con champú neutro + Aspirado de habitáculo y acondicionamiento básico de llantas y neumáticos.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="text-2xl font-black text-brand-yellow">-- €</span>
+                    </div>
+                    <button onclick="openFormModal('Limpieza Básica', '--')" class="bg-brand-yellow text-black text-xs font-bold px-6 py-3 rounded-xl hover:bg-brand-yellowDark transition uppercase">Pedir Cita</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TINTADO DE LUNAS -->
+    <section id="tintado" class="py-20 px-4 max-w-6xl mx-auto w-full border-t border-white/5">
+        <div class="text-center mb-10">
+            <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Homologación ITV Incluida</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold uppercase mt-1 mb-3">Tintado de Lunas</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-4">Láminas de alta protección térmica y privacidad adaptadas al tamaño del vehículo. Aumenta el confort interior reduciendo el calor y bloqueando la radiación solar dañina.</p>
+        </div>
+
+        <!-- SELECTOR DE TIPO DE LÁMINA -->
+        <div class="flex justify-center mb-10">
+            <div class="inline-flex bg-brand-card border border-white/10 rounded-2xl p-1.5 gap-1.5 flex-col sm:flex-row">
+                <button id="tab-premium"
+                    onclick="selectTintadoTab('premium')"
+                    class="tintado-tab active-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-1 text-center">
+                    <span>Lámina Premium</span>
+                    <span class="text-[10px] font-normal opacity-80 max-w-[220px] leading-tight">Reduce calor hasta 65% · Protección UV 99% · Doble capa · Garantía 15 años · Pasa ITV</span>
+                </button>
+                <button id="tab-ceramica"
+                    onclick="selectTintadoTab('ceramica')"
+                    class="tintado-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-1 text-center">
+                    <span>Lámina Nanocerámica</span>
+                    <span class="text-[10px] font-normal opacity-80 max-w-[220px] leading-tight">Reduce calor hasta 85% · Protección UV 99% · Alto rendimiento · Garantía de por vida · Pasa ITV</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- GRID DE TAMAÑOS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+            <!-- Pequeño -->
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/pequeno.webp" loading="lazy" alt="Pequeño" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <h3 class="font-bold text-lg mb-1">Pequeño</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Fiat 500, Mini, Aygo</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-premium="145" data-ceramica="194">145 €</span>
+                    </div>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Pequeño">Pedir Cita</button>
+                </div>
+            </div>
+
+            <!-- Mediano -->
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/compacto.webp" loading="lazy" alt="Mediano" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <h3 class="font-bold text-lg mb-1">Mediano</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Seat León, Golf, A3</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-premium="194" data-ceramica="242">194 €</span>
+                    </div>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Mediano">Pedir Cita</button>
+                </div>
+            </div>
+
+            <!-- Grande -->
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/sedan.png" loading="lazy" alt="Grande" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <h3 class="font-bold text-lg mb-1">Grande</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Audi A7, Serie 5, Berlinas</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-premium="218" data-ceramica="272">218 €</span>
+                    </div>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Grande">Pedir Cita</button>
+                </div>
+            </div>
+
+            <!-- 4x4 -->
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/4x4.png" loading="lazy" alt="4x4" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1); transform: scaleX(-1);">
+                    <h3 class="font-bold text-lg mb-1">4x4</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: Jeep, BMW X5, GLE</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-premium="242" data-ceramica="302">242 €</span>
+                    </div>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="4x4">Pedir Cita</button>
+                </div>
+            </div>
+
+            <!-- Furgoneta -->
+            <div class="bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-yellow transition text-center flex flex-col justify-between">
+                <div>
+                    <img src="img/plantillas_coches/furgoneta.webp" loading="lazy" alt="Furgoneta" class="h-24 mx-auto object-contain mb-4" style="filter: brightness(0) invert(1);">
+                    <h3 class="font-bold text-lg mb-1">Furgoneta</h3>
+                    <p class="text-xs text-gray-400 mb-3">Ej: VW Transporter, Vito</p>
+                </div>
+                <div class="pt-3 border-t border-white/5 space-y-3">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase block">Desde</span>
+                        <span class="tintado-precio text-2xl font-black text-brand-yellow" data-premium="280" data-ceramica="400">280 €</span>
+                    </div>
+                    <button class="tintado-cita w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-bold text-xs py-2 rounded-xl transition uppercase"
+                        data-size="Furgoneta">Pedir Cita</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AVISO DE RESERVA -->
+        <div class="mt-10 bg-brand-dark/80 border border-brand-yellow/30 p-5 rounded-2xl text-center max-w-3xl mx-auto shadow-lg">
+            <p class="text-sm text-gray-300">
+                <i class="fa-solid fa-calendar-check text-brand-yellow mr-2 text-lg"></i>
+                <strong class="text-white">Trabajamos solo con cita previa.</strong> Para confirmar tu reserva es necesario abonar el <span class="text-brand-yellow font-bold">30%</span> del total del presupuesto.
+            </p>
         </div>
     </section>
 
@@ -756,6 +881,48 @@
         </div>
     </section>
 
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="py-20 px-4 bg-brand-dark border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest">Resolvemos tus dudas</span>
+                <h2 class="text-3xl font-extrabold uppercase mt-1">Preguntas Frecuentes</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-brand-card p-6 rounded-2xl border border-white/10 hover:border-brand-yellow/30 transition">
+                    <h3 class="font-bold text-white mb-2 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-question text-brand-yellow"></i> 
+                        ¿Cuánto tiempo se tarda en realizar un servicio?
+                    </h3>
+                    <p class="text-sm text-gray-400 pl-8 leading-relaxed">
+                        El tiempo de ejecución depende enteramente del servicio contratado. Un tintado de lunas o limpieza básica puede demorar un par de horas, mientras que los tratamientos cerámicos, correcciones de pintura (pulidos) o instalación de PPF pueden requerir de 1 a varios días en nuestras instalaciones para garantizar un secado y curado perfecto.
+                    </p>
+                </div>
+                
+                <div class="bg-brand-card p-6 rounded-2xl border border-white/10 hover:border-brand-yellow/30 transition">
+                    <h3 class="font-bold text-white mb-2 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-question text-brand-yellow"></i> 
+                        ¿Tendré algún problema con la ITV tras tintar los cristales?
+                    </h3>
+                    <p class="text-sm text-gray-400 pl-8 leading-relaxed">
+                        No. Todas las láminas solares que instalamos, tanto las Premium como las Nanocerámicas, están 100% homologadas para circular por España. Emitimos un certificado de homologación por escrito y colocamos los sellos obligatorios en cada cristal.
+                    </p>
+                </div>
+
+                <div class="bg-brand-card p-6 rounded-2xl border border-white/10 hover:border-brand-yellow/30 transition">
+                    <h3 class="font-bold text-white mb-2 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-question text-brand-yellow"></i> 
+                        ¿Los tratamientos cerámicos protegen contra rayones?
+                    </h3>
+                    <p class="text-sm text-gray-400 pl-8 leading-relaxed">
+                        El tratamiento cerámico ofrece una dureza excepcional frente a microarañazos superficiales, químicos (como excrementos de aves o resina) y radiación UV, además de brindar una repelencia al agua espectacular. Sin embargo, no protege contra impactos de piedras o roces fuertes. Para ese nivel de protección física, te recomendamos la instalación de PPF.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACTO Y MAPA -->
     <footer id="contacto" class="bg-brand-card border-t border-white/10 pt-16 pb-8 px-4 mt-auto">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
@@ -821,22 +988,39 @@
                 <div>
                     <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Servicio a solicitar *</label>
                     <select id="service-select" required onchange="updateModalServiceFromSelect()" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
-                        <option value="Tintado de Lunas - Pequeño|--">Tintado de Lunas - Pequeño</option>
-                        <option value="Tintado de Lunas - Mediano|--">Tintado de Lunas - Mediano</option>
-                        <option value="Tintado de Lunas - Grande|--">Tintado de Lunas - Grande</option>
-                        <option value="Tintado de Lunas - 4x4|--">Tintado de Lunas - 4x4</option>
-                        <option value="Tintado de Lunas - Furgoneta|--">Tintado de Lunas - Furgoneta</option>
-                        <option value="Detailing Exterior|--">Detailing Exterior</option>
-                        <option value="Detailing Interior|--">Detailing Interior</option>
-                        <option value="Tratamiento Cerámico|--">Tratamiento Cerámico</option>
-                        <option value="Limpieza Integral Detallada|--">Limpieza Integral Detallada</option>
-                        <option value="Limpieza Básica|--">Limpieza Básica</option>
-                        <option value="PPF (Paint Protection Film)|--">PPF (Paint Protection Film)</option>
+                        
+                        <!-- Ordenado igual que la web -->
+                        <option value="PPF Protección Básica|400">PPF Protección Básica</option>
+                        <option value="PPF Frontal Completo|1400">PPF Frontal Completo</option>
+                        <option value="PPF Zonas de Impacto|1700">PPF Zonas de Impacto</option>
+                        <option value="PPF Coche Completo|4000">PPF Coche Completo</option>
+                        <option value="PPF Protección Interior|200">PPF Protección Interior</option>
+                        <option value="PPF Oferta Especial TESLA|1450">PPF Oferta Especial TESLA</option>
+
                         <option value="Pulido de Pintura - Pequeño|--">Pulido de Pintura - Pequeño</option>
                         <option value="Pulido de Pintura - Mediano|--">Pulido de Pintura - Mediano</option>
                         <option value="Pulido de Pintura - Grande|--">Pulido de Pintura - Grande</option>
                         <option value="Pulido de Pintura - 4x4|--">Pulido de Pintura - 4x4</option>
                         <option value="Pulido de Pintura - Furgoneta|--">Pulido de Pintura - Furgoneta</option>
+
+                        <option value="Tratamiento Cerámico|--">Tratamiento Cerámico</option>
+
+                        <option value="Detailing Exterior|--">Detailing Exterior</option>
+                        <option value="Detailing Interior|--">Detailing Interior</option>
+
+                        <option value="Limpieza Integral Detallada|--">Limpieza Integral Detallada</option>
+                        <option value="Limpieza Básica|--">Limpieza Básica</option>
+
+                        <option value="Tintado de Lunas Lámina Premium - Pequeño|145">Tintado de Lunas Lámina Premium - Pequeño</option>
+                        <option value="Tintado de Lunas Lámina Premium - Mediano|194">Tintado de Lunas Lámina Premium - Mediano</option>
+                        <option value="Tintado de Lunas Lámina Premium - Grande|218">Tintado de Lunas Lámina Premium - Grande</option>
+                        <option value="Tintado de Lunas Lámina Premium - 4x4|242">Tintado de Lunas Lámina Premium - 4x4</option>
+                        <option value="Tintado de Lunas Lámina Premium - Furgoneta|280">Tintado de Lunas Lámina Premium - Furgoneta</option>
+                        <option value="Tintado de Lunas Lámina Nanocerámica - Pequeño|194">Tintado de Lunas Lámina Nanocerámica - Pequeño</option>
+                        <option value="Tintado de Lunas Lámina Nanocerámica - Mediano|242">Tintado de Lunas Lámina Nanocerámica - Mediano</option>
+                        <option value="Tintado de Lunas Lámina Nanocerámica - Grande|272">Tintado de Lunas Lámina Nanocerámica - Grande</option>
+                        <option value="Tintado de Lunas Lámina Nanocerámica - 4x4|302">Tintado de Lunas Lámina Nanocerámica - 4x4</option>
+                        <option value="Tintado de Lunas Lámina Nanocerámica - Furgoneta|400">Tintado de Lunas Lámina Nanocerámica - Furgoneta</option>
                     </select>
                 </div>
 
@@ -1017,12 +1201,9 @@ Observaciones: ${userMsg || 'Ninguna'}
 
     <script>
         // ── TINTADO: selector de lámina ──────────────────────────────────────
-        // Para añadir precios cuando estén listos, cambia los valores aquí:
-        // data-basica="XX" y data-ceramica="XX" en cada .tintado-precio del HTML,
-        // o edita los objetos de abajo si prefieres centralizarlo en JS.
         // ─────────────────────────────────────────────────────────────────────
 
-        let tintadoTipoActivo = 'basica';
+        let tintadoTipoActivo = 'premium';
 
         function selectTintadoTab(tipo) {
             tintadoTipoActivo = tipo;
@@ -1046,10 +1227,72 @@ Observaciones: ${userMsg || 'Ninguna'}
                 const size = this.dataset.size;
                 const precioEl = this.closest('.space-y-3').querySelector('.tintado-precio');
                 const precio = precioEl ? precioEl.dataset[tintadoTipoActivo] : '--';
-                const tipoLabel = tintadoTipoActivo === 'basica' ? 'Lámina Básica' : 'Lámina Cerámica';
+                const tipoLabel = tintadoTipoActivo === 'premium' ? 'Lámina Premium' : 'Lámina Nanocerámica';
                 openFormModal('Tintado de Lunas ' + tipoLabel + ' - ' + size, precio);
             });
         });
+    </script>
+
+    <!-- LÓGICA PARA COMPARADOR ANTES Y DESPUÉS -->
+    <script>
+        const containerBA = document.getElementById('before-after-container');
+        const beforeWrapper = document.getElementById('ba-before-wrapper');
+        const beforeImg = document.getElementById('ba-before-img');
+        const handle = document.getElementById('ba-handle');
+
+        if (containerBA && beforeWrapper && beforeImg && handle) {
+            function updateImageWidth() {
+                beforeImg.style.width = containerBA.offsetWidth + 'px';
+            }
+
+            function setSliderPosition(x) {
+                const rect = containerBA.getBoundingClientRect();
+                let positionX = x - rect.left;
+                if (positionX < 0) positionX = 0;
+                if (positionX > rect.width) positionX = rect.width;
+
+                const percentage = (positionX / rect.width) * 100;
+                beforeWrapper.style.width = percentage + '%';
+                handle.style.left = percentage + '%';
+            }
+
+            let isDraggingBA = false;
+
+            containerBA.addEventListener('mousedown', (e) => {
+                isDraggingBA = true;
+                setSliderPosition(e.clientX);
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDraggingBA) return;
+                setSliderPosition(e.clientX);
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDraggingBA = false;
+            });
+
+            containerBA.addEventListener('touchstart', (e) => {
+                isDraggingBA = true;
+                if (e.touches.length > 0) {
+                    setSliderPosition(e.touches[0].clientX);
+                }
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (!isDraggingBA) return;
+                if (e.touches.length > 0) {
+                    setSliderPosition(e.touches[0].clientX);
+                }
+            });
+
+            window.addEventListener('touchend', () => {
+                isDraggingBA = false;
+            });
+
+            window.addEventListener('resize', updateImageWidth);
+            updateImageWidth();
+        }
     </script>
 
 </body>
