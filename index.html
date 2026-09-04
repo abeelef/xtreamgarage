@@ -72,6 +72,128 @@
                 transform: translateX(-50%);
             }
         }
+
+        :root {
+            --brand-yellow: #EFFF11;
+            --brand-dark: #0B0B0B;
+            --brand-card: #141414;
+        }
+
+        html {
+            scroll-padding-top: 5.75rem;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        section[id],
+        footer[id] {
+            scroll-margin-top: 5.75rem;
+        }
+
+        button,
+        a,
+        select,
+        input,
+        textarea {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        select:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--brand-yellow);
+            outline-offset: 3px;
+        }
+
+        .service-slider .slide-img {
+            will-change: opacity;
+        }
+
+        #main-header {
+            background-image: linear-gradient(180deg, rgba(11, 11, 11, 0.42), transparent);
+        }
+
+        #before-after-container {
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            touch-action: pan-y;
+        }
+
+        #ppf .grid > div,
+        #pulido .grid > div,
+        #tintado .grid > div,
+        #ceramico,
+        #detailing-exterior,
+        #detailing-interior,
+        #limpieza-integral,
+        #limpieza-basica {
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        #ppf .grid > div,
+        #pulido .grid > div,
+        #tintado .grid > div {
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        @media (hover: hover) {
+            #ppf .grid > div:hover,
+            #pulido .grid > div:hover,
+            #tintado .grid > div:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 38px rgba(0, 0, 0, 0.3);
+            }
+
+            #ceramico:hover .service-slider img,
+            #detailing-exterior:hover .service-slider img,
+            #detailing-interior:hover .service-slider img,
+            #limpieza-integral:hover .service-slider img,
+            #limpieza-basica:hover .service-slider img {
+                transform: scale(1.035);
+            }
+        }
+
+        .service-slider .slide-img {
+            transition-property: opacity, transform;
+        }
+
+        @media (max-width: 639px) {
+            #main-header {
+                padding-inline: 1rem;
+            }
+
+            #main-header > div {
+                gap: 0.5rem;
+            }
+
+            #main-header a[href*="wa.me"] {
+                padding-inline: 0.75rem;
+                font-size: 0.75rem;
+            }
+
+            #before-after-container {
+                height: min(350px, 72vw);
+                min-height: 260px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-brand-dark text-white font-sans antialiased flex flex-col min-h-screen">
@@ -79,8 +201,8 @@
     <!-- BOTÓN MENÚ HAMBURGUESA (FIJO MÓVIL Y PC) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-40 backdrop-blur-md border-b border-transparent px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <button id="open-sidebar" class="text-2xl text-white hover:text-brand-yellow focus:outline-none" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
+            <button id="open-sidebar" type="button" class="text-2xl text-white hover:text-brand-yellow focus:outline-none" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
             <a href="index.html" aria-label="Xtream Garage Detailing">
                 <img src="img/logo.png" alt="Xtream Garage" class="h-9 sm:h-10 w-auto object-contain">
@@ -98,12 +220,12 @@
     </header>
 
     <!-- MENÚ LATERAL (SIDEBAR) -->
-    <aside id="sidebar" class="fixed top-0 left-0 h-full w-80 bg-brand-dark/95 border-r border-white/10 z-50 transform -translate-x-full sidebar-transition flex flex-col justify-between p-6 shadow-2xl backdrop-blur-xl">
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-80 bg-brand-dark/95 border-r border-white/10 z-50 transform -translate-x-full sidebar-transition flex flex-col justify-between p-6 shadow-2xl backdrop-blur-xl" aria-hidden="true">
         <div>
             <div class="flex justify-between items-center mb-8">
                 <img src="img/logo.png" alt="Xtream Garage" class="h-8 w-auto object-contain">
-                <button id="close-sidebar" class="text-2xl text-gray-400 hover:text-white">
-                    <i class="fa-solid fa-xmark"></i>
+                <button id="close-sidebar" type="button" class="text-2xl text-gray-400 hover:text-white" aria-label="Cerrar menú">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
                 </button>
             </div>
 
@@ -111,7 +233,7 @@
                 <a href="#inicio" class="sidebar-link block text-lg font-medium hover:text-brand-yellow transition">Inicio</a>
 
                 <div>
-                    <button id="toggle-services" class="w-full flex justify-between items-center text-lg font-medium hover:text-brand-yellow transition py-1">
+                    <button id="toggle-services" type="button" class="w-full flex justify-between items-center text-lg font-medium hover:text-brand-yellow transition py-1" aria-expanded="false" aria-controls="services-submenu">
                         <span>Los Servicios</span>
                         <i id="services-chevron" class="fa-solid fa-chevron-down text-sm transition-transform"></i>
                     </button>
@@ -149,10 +271,11 @@
     <div id="overlay" class="fixed inset-0 bg-black/70 z-40 hidden backdrop-blur-sm"></div>
 
     <!-- SECCIÓN HERO -->
+    <main>
     <section id="inicio" class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden pt-16">
 
         <!-- Vídeo de fondo -->
-        <video autoplay loop muted playsinline
+        <video autoplay loop muted playsinline preload="metadata" aria-hidden="true"
                class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 filter brightness-50">
             <source src="img/video/video-hero.mp4" type="video/mp4">
         </video>
@@ -206,7 +329,7 @@
             <p class="text-gray-400 mb-8 text-sm">Arrastra para ver el cambio antes y después de nuestros tratamientos en Igualada.</p>
 
             <!-- Comparador Interactivo Antes y Después -->
-            <div id="before-after-container" class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-brand-card select-none cursor-ew-resize">
+            <div id="before-after-container" class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-brand-card select-none cursor-ew-resize" role="slider" tabindex="0" aria-label="Comparador antes y después" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50 por ciento antes">
                 <!-- Imagen Después (Fondo) -->
                 <img src="img/antesdespues/despuesInterior.jpg" loading="lazy" decoding="async" alt="Después" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
                 
@@ -663,16 +786,16 @@
 
         <!-- SELECTOR DE TIPO DE LÁMINA -->
         <div class="flex justify-center mb-10">
-            <div class="inline-flex bg-brand-card border border-white/10 rounded-2xl p-1.5 gap-1.5 flex-col sm:flex-row">
+            <div class="inline-flex bg-brand-card border border-white/10 rounded-2xl p-1.5 gap-1.5 flex-col sm:flex-row" role="tablist" aria-label="Tipo de lámina">
                 <button id="tab-premium"
                     onclick="selectTintadoTab('premium')"
-                    class="tintado-tab active-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-1 text-center">
+                    type="button" role="tab" aria-selected="true" class="tintado-tab active-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-1 text-center">
                     <span>Lámina Premium</span>
                     <span class="text-[10px] font-normal opacity-80 max-w-[220px] leading-tight">Reduce calor hasta 65% · Protección UV 99% · Doble capa · Garantía 15 años · Pasa ITV</span>
                 </button>
                 <button id="tab-ceramica"
                     onclick="selectTintadoTab('ceramica')"
-                    class="tintado-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-1 text-center">
+                    type="button" role="tab" aria-selected="false" class="tintado-tab px-5 py-3 rounded-xl text-sm font-bold transition-all flex flex-col items-center gap-1 text-center">
                     <span>Lámina Nanocerámica</span>
                     <span class="text-[10px] font-normal opacity-80 max-w-[220px] leading-tight">Reduce calor hasta 85% · Protección UV 99% · Alto rendimiento · Garantía de por vida · Pasa ITV</span>
                 </button>
@@ -778,6 +901,7 @@
         </div>
         </div>
     </section>
+    </main>
 
     <!-- PRODUCTOS UTILIZADOS -->
     <section class="py-12 bg-brand-dark border-y border-white/5 text-center">
@@ -981,11 +1105,11 @@
     </footer>
 
     <!-- MODAL DE FORMULARIO DE PRESUPUESTO -->
-    <div id="quote-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div id="quote-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-service-title" aria-hidden="true">
         <div class="bg-brand-card border border-white/10 rounded-2xl max-w-lg w-full p-6 relative shadow-2xl overflow-y-auto max-h-[90vh]">
 
-            <button onclick="closeFormModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
+            <button onclick="closeFormModal()" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl" aria-label="Cerrar formulario">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
 
             <div class="mb-6">
@@ -1003,7 +1127,7 @@
                 <input type="hidden" name="Precio Base" id="input-hidden-price">
 
                 <div>
-                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Servicio a solicitar *</label>
+                    <label for="service-select" class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Servicio a solicitar *</label>
                     <select id="service-select" required onchange="updateModalServiceFromSelect()" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
                         
                         <!-- Ordenado igual que la web -->
@@ -1042,29 +1166,29 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Nombre Completo *</label>
-                    <input type="text" name="Nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                    <label for="quote-name" class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Nombre Completo *</label>
+                    <input id="quote-name" type="text" name="Nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Teléfono / WhatsApp *</label>
-                    <input type="tel" name="Telefono" required placeholder="600 000 000" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                    <label for="quote-phone" class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Teléfono / WhatsApp *</label>
+                    <input id="quote-phone" type="tel" name="Telefono" required placeholder="600 000 000" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Modelo de Coche *</label>
-                        <input type="text" name="Vehiculo" required placeholder="Ej: Audi A3 / Golf GTI" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                        <label for="quote-vehicle" class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Modelo de Coche *</label>
+                        <input id="quote-vehicle" type="text" name="Vehiculo" required placeholder="Ej: Audi A3 / Golf GTI" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Año del Coche *</label>
-                        <input type="text" name="Ano_Vehiculo" required placeholder="Ej: 2020" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
+                        <label for="quote-year" class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Año del Coche *</label>
+                        <input id="quote-year" type="text" name="Ano_Vehiculo" required placeholder="Ej: 2020" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Observaciones / Detalles</label>
-                    <textarea name="Mensaje" rows="2" placeholder="Indícanos si tiene algún arañazo, estado de la tapicería o preferencia de fecha." class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none resize-none"></textarea>
+                    <label for="quote-message" class="block text-xs text-gray-400 mb-1 uppercase font-semibold">Observaciones / Detalles</label>
+                    <textarea id="quote-message" name="Mensaje" rows="2" placeholder="Indícanos si tiene algún arañazo, estado de la tapicería o preferencia de fecha." class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:border-brand-yellow focus:outline-none resize-none"></textarea>
                 </div>
 
                 <button type="submit" id="submit-btn" class="w-full bg-brand-yellow hover:bg-brand-yellowDark text-black font-extrabold py-3.5 rounded-xl uppercase transition text-sm">
@@ -1098,11 +1222,16 @@
         function openMenu() {
             sidebar.classList.remove('-translate-x-full');
             overlay.classList.remove('hidden');
+            sidebar.setAttribute('aria-hidden', 'false');
+            openBtn.setAttribute('aria-expanded', 'true');
+            closeBtn.focus();
         }
 
         function closeMenu() {
             sidebar.classList.add('-translate-x-full');
             overlay.classList.add('hidden');
+            sidebar.setAttribute('aria-hidden', 'true');
+            openBtn.setAttribute('aria-expanded', 'false');
         }
 
         openBtn.addEventListener('click', openMenu);
@@ -1112,6 +1241,7 @@
         toggleServices.addEventListener('click', () => {
             servicesSubmenu.classList.toggle('hidden');
             servicesChevron.classList.toggle('rotate-180');
+            toggleServices.setAttribute('aria-expanded', String(!servicesSubmenu.classList.contains('hidden')));
         });
 
         sidebarLinks.forEach(link => {
@@ -1120,47 +1250,75 @@
 
         // Header transparente en hero, oscuro al hacer scroll
         const mainHeader = document.getElementById('main-header');
+        let headerIsScrolled = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
+            const shouldUseSolidHeader = window.scrollY > 80;
+            if (shouldUseSolidHeader === headerIsScrolled) return;
+            headerIsScrolled = shouldUseSolidHeader;
+            if (headerIsScrolled) {
                 mainHeader.style.backgroundColor = 'rgba(11,11,11,0.92)';
                 mainHeader.style.borderBottomColor = 'rgba(255,255,255,0.1)';
             } else {
                 mainHeader.style.backgroundColor = 'transparent';
                 mainHeader.style.borderBottomColor = 'transparent';
             }
-        });
+        }, { passive: true });
 
         // Carrusel automático de imágenes en servicios
+        const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
         document.querySelectorAll('.service-slider').forEach(slider => {
             const images = slider.querySelectorAll('.slide-img');
-            if (images.length > 1) {
+            if (images.length > 1 && !reducedMotionQuery.matches) {
                 let currentIndex = 0;
-                setInterval(() => {
+                let carouselInterval;
+                const rotateImages = () => {
                     images[currentIndex].classList.remove('opacity-100');
                     images[currentIndex].classList.add('opacity-0');
                     currentIndex = (currentIndex + 1) % images.length;
                     images[currentIndex].classList.remove('opacity-0');
                     images[currentIndex].classList.add('opacity-100');
-                }, 3500);
+                };
+                const startCarousel = () => {
+                    if (!carouselInterval && !document.hidden) {
+                        carouselInterval = window.setInterval(rotateImages, 3500);
+                    }
+                };
+                const stopCarousel = () => {
+                    window.clearInterval(carouselInterval);
+                    carouselInterval = null;
+                };
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) stopCarousel();
+                    else startCarousel();
+                });
+                startCarousel();
             }
         });
 
         // LÓGICA DEL FORMULARIO Y MODAL
+        let lastFocusedElement = null;
+
         function openFormModal(serviceName, basePrice) {
+            lastFocusedElement = document.activeElement;
             document.getElementById('modal-service-title').innerText = serviceName;
             document.getElementById('modal-service-price').innerText = 'Desde ' + basePrice + ' €';
             document.getElementById('input-hidden-service').value = serviceName;
             document.getElementById('input-hidden-price').value = basePrice + ' €';
 
             const select = document.getElementById('service-select');
-            for (let option of select.options) {
-                if (option.value.startsWith(serviceName)) {
-                    option.selected = true;
-                    break;
-                }
+            const selectedOption = Array.from(select.options).find(option =>
+                option.value.startsWith(serviceName) ||
+                (serviceName === 'Pulido de Pintura + Tratamiento Cerámico' && option.value.startsWith('Tratamiento Cerámico|'))
+            );
+            if (selectedOption) {
+                select.value = selectedOption.value;
             }
 
-            document.getElementById('quote-modal').classList.remove('hidden');
+            const modal = document.getElementById('quote-modal');
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('overflow-hidden');
+            modal.querySelector('button[aria-label="Cerrar formulario"]').focus();
         }
 
         function updateModalServiceFromSelect() {
@@ -1173,7 +1331,14 @@
         }
 
         function closeFormModal() {
-            document.getElementById('quote-modal').classList.add('hidden');
+            const modal = document.getElementById('quote-modal');
+            if (modal.classList.contains('hidden')) return;
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+            if (lastFocusedElement && document.contains(lastFocusedElement)) {
+                lastFocusedElement.focus();
+            }
         }
 
         document.getElementById('quote-form').addEventListener('submit', function (e) {
@@ -1228,8 +1393,11 @@ Observaciones: ${userMsg || 'Ninguna'}
             // Actualizar estilos de tabs
             document.querySelectorAll('.tintado-tab').forEach(btn => {
                 btn.classList.remove('active-tab');
+                btn.setAttribute('aria-selected', 'false');
             });
-            document.getElementById('tab-' + tipo).classList.add('active-tab');
+            const activeTab = document.getElementById('tab-' + tipo);
+            activeTab.classList.add('active-tab');
+            activeTab.setAttribute('aria-selected', 'true');
 
             // Actualizar precios mostrados
             document.querySelectorAll('.tintado-precio').forEach(el => {
@@ -1271,6 +1439,8 @@ Observaciones: ${userMsg || 'Ninguna'}
                 const percentage = (positionX / rect.width) * 100;
                 beforeWrapper.style.width = percentage + '%';
                 handle.style.left = percentage + '%';
+                containerBA.setAttribute('aria-valuenow', String(Math.round(percentage)));
+                containerBA.setAttribute('aria-valuetext', Math.round(percentage) + ' por ciento antes');
             }
 
             let isDraggingBA = false;
@@ -1305,6 +1475,20 @@ Observaciones: ${userMsg || 'Ninguna'}
 
             window.addEventListener('touchend', () => {
                 isDraggingBA = false;
+            });
+
+            containerBA.addEventListener('keydown', (e) => {
+                const rect = containerBA.getBoundingClientRect();
+                const currentValue = Number(containerBA.getAttribute('aria-valuenow')) || 50;
+                const keyboardValues = {
+                    ArrowLeft: Math.max(0, currentValue - 5),
+                    ArrowRight: Math.min(100, currentValue + 5),
+                    Home: 0,
+                    End: 100
+                };
+                if (!(e.key in keyboardValues)) return;
+                e.preventDefault();
+                setSliderPosition(rect.left + (rect.width * keyboardValues[e.key] / 100));
             });
 
             window.addEventListener('resize', updateImageWidth);
