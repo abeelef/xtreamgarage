@@ -1,4 +1,3 @@
-// Spanish source text → Catalan and English. Keep booking option values in Spanish.
 window.translations = {
   "ca": {
     "Abrir menú": "Obrir menú",
@@ -245,7 +244,13 @@ window.translations = {
     "PPF Protección Básica": "PPF Protecció bàsica",
     "Detailing exterior en Xtream Detailing, Igualada. Consulta los servicios y solicita tu presupuesto.": "Detailing exterior a Xtream Detailing, Igualada. Consulta els serveis i demana el teu pressupost.",
     "Tintado de Lunas en Xtream Detailing, Igualada. Consulta los servicios y solicita tu presupuesto.": "Tintat de vidres a Xtream Detailing, Igualada. Consulta els serveis i demana el teu pressupost.",
-    "desde 620€.": "des de 620€."
+    "desde 620€.": "des de 620€.",
+    "Vinilado": "Vinilat",
+    "Vinilado de vehículos": "Vinilat de vehicles",
+    "Presupuesto personalizado": "Pressupost personalitzat",
+    "El precio depende del vehículo, la superficie y el vinilo elegido.": "El preu depèn del vehicle, la superfície i el vinil escollit.",
+    "Personaliza el aspecto de tu vehículo con vinilo. Consúltanos el acabado y las zonas que quieres cambiar; valoramos cada proyecto para preparar un presupuesto a medida.": "Personalitza l’aspecte del teu vehicle amb vinil. Consulta’ns l’acabat i les zones que vols canviar; valorem cada projecte per preparar un pressupost a mida.",
+    "Vinilado | Xtream Detailing · Igualada": "Vinilat | Xtream Detailing · Igualada"
   },
   "en": {
     "Abrir menú": "Open menu",
@@ -494,6 +499,12 @@ window.translations = {
     "PPF Protección Básica": "PPF Basic protection",
     "Detailing exterior en Xtream Detailing, Igualada. Consulta los servicios y solicita tu presupuesto.": "Exterior detailing at Xtream Detailing, Igualada. Explore our services and request a quote.",
     "Tintado de Lunas en Xtream Detailing, Igualada. Consulta los servicios y solicita tu presupuesto.": "Window tinting at Xtream Detailing, Igualada. Explore our services and request a quote.",
-    "desde 620€.": "from 620€."
+    "desde 620€.": "from 620€.",
+    "Vinilado": "Vinyl wrapping",
+    "Vinilado de vehículos": "Vehicle vinyl wrapping",
+    "Presupuesto personalizado": "Custom quote",
+    "El precio depende del vehículo, la superficie y el vinilo elegido.": "The price depends on the vehicle, coverage and chosen vinyl.",
+    "Personaliza el aspecto de tu vehículo con vinilo. Consúltanos el acabado y las zonas que quieres cambiar; valoramos cada proyecto para preparar un presupuesto a medida.": "Personalise your vehicle with vinyl. Tell us your preferred finish and the areas you want to change; we assess each project to prepare a tailored quote.",
+    "Vinilado | Xtream Detailing · Igualada": "Vinyl wrapping | Xtream Detailing · Igualada"
   }
 };

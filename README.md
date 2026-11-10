@@ -15,24 +15,6 @@ python -m http.server 8000
 
 El selector ES / CA / EN conserva el idioma entre páginas. Las traducciones se editan en `assets/translations.js`. El contenido base está en español. Los valores internos de las opciones de reserva permanecen en español; el formulario y el mensaje de WhatsApp se muestran en el idioma elegido.
 
-## Añadir las fotos pendientes
-
-Subir estos archivos, respetando mayúsculas y extensión:
-
-| Contenido | Ruta |
-| --- | --- |
-| Pulido antes | `img/antesdespues/antesPulido.jpg` |
-| Pulido después | `img/antesdespues/despuesPulido.jpg` |
-| Vinilo antes | `img/antesdespues/antesVinilo.jpg` |
-| Vinilo después | `img/antesdespues/despuesVinilo.jpg` |
-| Primera marca nueva | `img/marcas/marca-1.png` |
-| Segunda marca nueva | `img/marcas/marca-2.png` |
-| Tercera marca nueva | `img/marcas/marca-3.png` |
-
-Los comparadores se activan cuando cargan las dos imágenes. Hasta entonces muestran «Próximamente: antes y después». Las marcas aparecen cuando existe su imagen. Usar fotografías antes/después con el mismo encuadre y proporción. Para los logotipos se recomienda PNG transparente; al conocer el nombre de cada marca, completar su atributo `alt` en `index.html`.
-
-El logotipo oficial horizontal se sirve directamente desde `img/logo-xtream-detailing.png` en la portada, cabecera y menú de todas las páginas, también sin JavaScript. El favicon utiliza `img/logo-xtream-detailing-perfil.png`. Las versiones transparentes se conservan en `img/logo-xtream-detailing-transparente.png` y `img/logo-xtream-detailing-perfil-transparente.png`. Los cuatro PNG originales del ZIP se incluyen sin modificar.
-
 ## Tarifas
 
 Pulido mínimo por tamaño: 250 / 330 / 400 / 450 €. Referencias por pasos: 250 / 460 / 620 €, sujetas a valoración. Cerámica: 250 / 450 / 550 €, con pulido previo presupuestado aparte. Mantener sincronizados texto, botones de reserva y opciones del formulario al cambiar tarifas.
@@ -48,3 +30,80 @@ npm test
 ```
 
 Los estilos de Tailwind están compilados en `assets/utilities.css`; ejecutar `npm run build:css` al añadir clases. Las fuentes y los iconos también se sirven localmente, con sus licencias en `assets/vendor/`. El mapa sigue siendo externo. Los enlaces de aviso legal, privacidad y cookies ya apuntaban a archivos ausentes en el repositorio; se necesitan los documentos reales para completarlos.
+
+## Imágenes pendientes de aportar
+
+Todas deben ser WebP. No es necesario volver a aportar los archivos del inventario siguiente. Los comparadores necesitan ambas fotos del mismo coche y encuadre.
+
+| Ruta exacta | Contenido |
+|---|---|
+| `img/antesdespues/antesPulido.webp` | Pintura antes del pulido |
+| `img/antesdespues/despuesPulido.webp` | La misma pintura después |
+| `img/antesdespues/antesVinilo.webp` | Vehículo antes de vinilar |
+| `img/antesdespues/despuesVinilo.webp` | El mismo vehículo vinilado |
+| `img/vinilado-1.webp` | Foto principal de un trabajo de vinilado |
+| `img/vinilado-2.webp` | Detalle del acabado o aplicación |
+| `img/marcas/marca-1.webp` | Logo transparente de la primera marca nueva |
+| `img/marcas/marca-2.webp` | Logo transparente de la segunda marca nueva |
+| `img/marcas/marca-3.webp` | Logo transparente de la tercera marca nueva |
+
+Recomendación: fotos de 1200–1600 px, mismo encuadre en comparadores; logotipos con transparencia. Las fotos opcionales se muestran automáticamente al subirlas. Completar los nombres reales de las marcas en los atributos alt cuando estén disponibles. Vinilado se ofrece con presupuesto personalizado, sin inventar tarifas.
+
+## Inventario de imágenes existentes
+
+- `foto-equipo.webp`
+- `img/antesdespues/antesInterior.webp`
+- `img/antesdespues/despuesInterior.webp`
+- `img/ceramicoBase1.webp`
+- `img/ceramicoBase2.webp`
+- `img/detailingExteriorBase1.webp`
+- `img/detailingExteriorBase2.webp`
+- `img/detailingInterioBase2.webp`
+- `img/detailingInteriorBase1.webp`
+- `img/galeria/antespulidobmw.webp`
+- `img/galeria/bmw.webp`
+- `img/galeria/despuespulidobmw.webp`
+- `img/galeria/interiorazul.webp`
+- `img/galeria/interiorbmwnegro.webp`
+- `img/galeria/interiornaranja.webp`
+- `img/galeria/lambo.webp`
+- `img/galeria/pantallappf.webp`
+- `img/galeria/porsche.webp`
+- `img/galeria/trabajando1.webp`
+- `img/labocosmetica-logo.webp`
+- `img/limpiezaBasicaBase1.webp`
+- `img/limpiezaBasicaBase2.webp`
+- `img/limpiezaIntegralDetalladaBase1.webp`
+- `img/limpiezaIntegralDetalladaBase2.webp`
+- `img/logo-xtream-detailing-perfil-transparente.webp`
+- `img/logo-xtream-detailing-perfil.webp`
+- `img/logo-xtream-detailing-transparente.webp`
+- `img/logo-xtream-detailing.webp`
+- `img/logo.webp`
+- `img/logo_fondo_negro.webp`
+- `img/motor1.webp`
+- `img/motor2.webp`
+- `img/plantillas_coches/4x4.webp`
+- `img/plantillas_coches/compacto.webp`
+- `img/plantillas_coches/furgoneta.webp`
+- `img/plantillas_coches/pequeno.webp`
+- `img/plantillas_coches/sedan.webp`
+- `img/ppfBase.webp`
+- `img/pulidoBase.webp`
+- `img/tintadoBase.webp`
+- `img/video/poster.webp`
+
+## Fotos que conviene revisar o sustituir
+
+- `img/limpiezaBasicaBase1.webp` se utiliza en detailing interior completo, pero muestra un lavado exterior. Sustituir por una foto representativa de limpieza interior, conservando el nombre, o actualizar su referencia en esa página.
+- La galería conserva sus fotos actuales; no requiere nuevas imágenes para funcionar. Verificar visualmente el orden real de las fotos `antespulidobmw.webp` y `despuespulidobmw.webp` antes de reutilizarlas como comparador: las etiquetas originales no coinciden con los nombres.
+- Los logotipos antiguos `img/logo.webp` y `img/logo_fondo_negro.webp` se conservan como archivo histórico; no son necesarios para la marca visible.
+- El vídeo existente `img/video/video-hero.mp4` se conserva. WebP se aplica a las imágenes, no al vídeo.
+
+## Mejoras propuestas, pendientes de aprobación
+
+1. Completar los documentos legales, privacidad y cookies con los datos reales del negocio: los enlaces actuales apuntan a archivos ausentes.
+2. Configurar dominio definitivo, canonical, sitemap, robots, metadatos sociales y datos estructurados LocalBusiness.
+3. Publicar URL propia por idioma y etiquetas hreflang para mejorar la indexación multilingüe (ahora el selector funciona en el navegador).
+4. Optimizar el vídeo de portada y revisar carga en conexiones móviles, movimiento reducido y carga del mapa externo.
+5. Hacer una revisión de accesibilidad y rendimiento con Lighthouse, y configurar caché, compresión y cabeceras en el alojamiento.

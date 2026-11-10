@@ -66,9 +66,9 @@
         function openFormModal(serviceName, basePrice) {
             lastFocusedElement = document.activeElement;
             document.getElementById('modal-service-title').innerText = window.t(serviceName);
-            document.getElementById('modal-service-price').innerText = window.t('Desde') + ' ' + basePrice + ' €';
+            document.getElementById('modal-service-price').innerText = (basePrice === 'consultar' ? window.t('Presupuesto personalizado') : window.t('Desde') + ' ' + basePrice + ' €');
             document.getElementById('input-hidden-service').value = serviceName;
-            document.getElementById('input-hidden-price').value = basePrice + ' €';
+            document.getElementById('input-hidden-price').value = (basePrice === 'consultar' ? window.t('Presupuesto personalizado') : basePrice + ' €');
 
             const select = document.getElementById('service-select');
             const selectedOption = Array.from(select.options).find(option =>
@@ -89,9 +89,9 @@
             const select = document.getElementById('service-select');
             const [serviceName, basePrice] = select.value.split('|');
             document.getElementById('modal-service-title').innerText = window.t(serviceName);
-            document.getElementById('modal-service-price').innerText = window.t('Desde') + ' ' + basePrice + ' €';
+            document.getElementById('modal-service-price').innerText = (basePrice === 'consultar' ? window.t('Presupuesto personalizado') : window.t('Desde') + ' ' + basePrice + ' €');
             document.getElementById('input-hidden-service').value = serviceName;
-            document.getElementById('input-hidden-price').value = basePrice + ' €';
+            document.getElementById('input-hidden-price').value = (basePrice === 'consultar' ? window.t('Presupuesto personalizado') : basePrice + ' €');
         }
 
         function closeFormModal() {

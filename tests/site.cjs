@@ -11,12 +11,12 @@ const base = process.env.SITE_URL || 'http://127.0.0.1:8000';
   // Third-party map and background video are not part of the booking/navigation checks.
   await page.route('**/*.mp4',r=>r.abort());
   await page.route('**/maps/embed**',r=>r.abort());
-  const pages = ['index','ppf','pulido','ceramico','detailing-exterior','detailing-interior-intermedio','detailing-interior-completo','limpieza-motor','tintado','galeria'];
+  const pages = ['index','ppf','pulido','ceramico','detailing-exterior','detailing-interior-intermedio','detailing-interior-completo','limpieza-motor','tintado','galeria','vinilado'];
   for (const name of pages) {
     await page.goto(`${base}/${name}.html`,{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>typeof window.t==='function');
     assert.equal(await page.locator('h1').count(),1,name);
-    assert.equal(await page.locator('#services-submenu a').count(),8,name);
+    assert.equal(await page.locator('#services-submenu a').count(),9,name);
     const spanish = await page.locator('h1').innerText();
     await page.selectOption('#language-select','en');
     assert.equal(await page.locator('html').getAttribute('lang'),'en');
@@ -83,16 +83,16 @@ const base = process.env.SITE_URL || 'http://127.0.0.1:8000';
     await page.keyboard.press('Escape');
   }
   console.log('All gallery images open: passed');
-  await page.route('**/img/antesdespues/*Pulido.jpg',r=>r.fulfill({path:path.resolve('img/antesdespues/antesInterior.jpg'),contentType:'image/jpeg'}));
-  await page.route('**/img/antesdespues/*Vinilo.jpg',r=>r.fulfill({path:path.resolve('img/antesdespues/despuesInterior.jpg'),contentType:'image/jpeg'}));
-  await page.route('**/img/marcas/*.png',r=>r.fulfill({path:path.resolve('img/labocosmetica-logo.png'),contentType:'image/png'}));
+  await page.route('**/img/antesdespues/*Pulido.webp',r=>r.fulfill({path:path.resolve('img/antesdespues/antesInterior.webp'),contentType:'image/jpeg'}));
+  await page.route('**/img/antesdespues/*Vinilo.webp',r=>r.fulfill({path:path.resolve('img/antesdespues/despuesInterior.webp'),contentType:'image/jpeg'}));
+  await page.route('**/img/marcas/*.webp',r=>r.fulfill({path:path.resolve('img/labocosmetica-logo.webp'),contentType:'image/webp'}));
   await page.goto(`${base}/index.html?lang=es`);
   await page.waitForFunction(()=>[...document.querySelectorAll('.comparison-images')].every(el=>!el.hidden));
   assert.equal(await page.locator('img[data-optional-src][src*="marcas/"]:visible').count(),3);
   console.log('Future asset uploads activate all comparators and brands: passed');
-  await page.unroute('**/img/antesdespues/*Pulido.jpg');
-  await page.unroute('**/img/antesdespues/*Vinilo.jpg');
-  await page.unroute('**/img/marcas/*.png');
+  await page.unroute('**/img/antesdespues/*Pulido.webp');
+  await page.unroute('**/img/antesdespues/*Vinilo.webp');
+  await page.unroute('**/img/marcas/*.webp');
   await page.setViewportSize({width:390,height:844});
   for(const name of pages) {
     await page.goto(`${base}/${name}.html?lang=en`,{waitUntil:'domcontentloaded'});
