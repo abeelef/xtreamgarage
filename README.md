@@ -31,7 +31,7 @@ Subir estos archivos, respetando mayúsculas y extensión:
 
 Los comparadores se activan cuando cargan las dos imágenes. Hasta entonces muestran «Próximamente: antes y después». Las marcas aparecen cuando existe su imagen. Usar fotografías antes/después con el mismo encuadre y proporción. Para los logotipos se recomienda PNG transparente; al conocer el nombre de cada marca, completar su atributo `alt` en `index.html`.
 
-El nuevo logotipo se carga desde `img/logo-xtream-detailing.png`. Mientras falta ese archivo, se muestra el nombre tipográfico Xtream Detailing. Los originales anteriores se conservan sin mostrarse como marca.
+El logotipo oficial horizontal se sirve directamente desde `img/logo-xtream-detailing.png` en la portada, cabecera y menú de todas las páginas, también sin JavaScript. El favicon utiliza `img/logo-xtream-detailing-perfil.png`. Las versiones transparentes se conservan en `img/logo-xtream-detailing-transparente.png` y `img/logo-xtream-detailing-perfil-transparente.png`. Los cuatro PNG originales del ZIP se incluyen sin modificar.
 
 ## Tarifas
 

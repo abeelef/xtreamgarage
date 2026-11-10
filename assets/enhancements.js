@@ -3,13 +3,6 @@ document.querySelectorAll('img[data-optional-src]').forEach(img => {
   img.addEventListener('load', () => {
     img.hidden = false;
     img.dataset.ready = 'true';
-    const identity = img.closest('.brand-identity');
-    if (identity) {
-      identity.querySelector('.wordmark').hidden = true;
-      const favicon = document.querySelector('link[rel="icon"]');
-      favicon.href = img.src;
-      favicon.type = 'image/png';
-    }
     const comparison = img.closest('[data-comparison]');
     if (comparison && [...comparison.querySelectorAll('img')].every(photo => photo.dataset.ready)) {
       comparison.querySelector('.comparison-images').hidden = false;
