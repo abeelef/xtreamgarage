@@ -179,3 +179,6 @@ function openServicesMenu() {
     toggleServices.setAttribute('aria-expanded', 'true');
     servicesSubmenu.querySelector('a').focus();
 }
+
+const initialFilm = new URLSearchParams(location.search).get('film');
+if (document.getElementById('tab-' + initialFilm) && ['premium','ceramica'].includes(initialFilm)) selectTintadoTab(initialFilm);

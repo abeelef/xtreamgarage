@@ -28,3 +28,37 @@ document.addEventListener('keydown', event => {
   if (event.shiftKey && document.activeElement === first) {event.preventDefault();last.focus();}
   else if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
 });
+
+// No Google request is made until the visitor explicitly loads the map.
+document.querySelectorAll('.map-load').forEach(button => button.addEventListener('click', () => {
+  const prompt = button.closest('.map-prompt');
+  const frame = prompt.parentElement.querySelector('iframe');
+  frame.src = frame.dataset.mapSrc;
+  frame.hidden = false;
+  prompt.remove();
+}));
+const backgroundVideo = document.querySelector('#inicio video');
+const videoButton = document.querySelector('.video-toggle');
+if (backgroundVideo && videoButton) {
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  const setVideoState = () => {
+    videoButton.textContent = window.t(backgroundVideo.paused ? 'Reproducir vídeo' : 'Pausar vídeo');
+    videoButton.setAttribute('aria-pressed', String(!backgroundVideo.paused));
+  };
+  const playVideo = async () => {
+    if (!backgroundVideo.querySelector('source').src) {
+      backgroundVideo.querySelectorAll('source').forEach(source => { source.src = source.dataset.videoSrc; });
+      backgroundVideo.load();
+    }
+    try { await backgroundVideo.play(); } catch { setVideoState(); }
+  };
+  backgroundVideo.addEventListener('play',setVideoState);
+  backgroundVideo.addEventListener('pause',setVideoState);
+  videoButton.addEventListener('click',() => backgroundVideo.paused ? playVideo() : backgroundVideo.pause());
+  motionPreference.addEventListener('change',event => { if(event.matches) backgroundVideo.pause(); });
+  document.addEventListener('visibilitychange',() => { if(document.hidden) backgroundVideo.pause(); });
+  // Mobile and reduced-data users keep the lightweight poster until they choose play.
+  if (!motionPreference.matches && !navigator.connection?.saveData && matchMedia('(min-width: 768px)').matches) {
+    window.addEventListener('load',playVideo,{once:true});
+  }
+}

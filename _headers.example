@@ -1,0 +1,11 @@
+# Template for Cloudflare Pages / Netlify. Activate only after confirming hosting.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/*
+  Cache-Control: public, max-age=3600, must-revalidate
+/img/*
+  Cache-Control: public, max-age=86400, must-revalidate

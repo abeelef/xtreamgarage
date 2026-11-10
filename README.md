@@ -100,10 +100,16 @@ Recomendación: fotos de 1200–1600 px, mismo encuadre en comparadores; logotip
 - Los logotipos antiguos `img/logo.webp` y `img/logo_fondo_negro.webp` se conservan como archivo histórico; no son necesarios para la marca visible.
 - El vídeo existente `img/video/video-hero.mp4` se conserva. WebP se aplica a las imágenes, no al vídeo.
 
-## Mejoras propuestas, pendientes de aprobación
+## Preparación técnica para producción
 
-1. Completar los documentos legales, privacidad y cookies con los datos reales del negocio: los enlaces actuales apuntan a archivos ausentes.
-2. Configurar dominio definitivo, canonical, sitemap, robots, metadatos sociales y datos estructurados LocalBusiness.
-3. Publicar URL propia por idioma y etiquetas hreflang para mejorar la indexación multilingüe (ahora el selector funciona en el navegador).
-4. Optimizar el vídeo de portada y revisar carga en conexiones móviles, movimiento reducido y carga del mapa externo.
-5. Hacer una revisión de accesibilidad y rendimiento con Lighthouse, y configurar caché, compresión y cabeceras en el alojamiento.
+- El español se mantiene en la raíz, el catalán en `/ca/` y el inglés en `/en/`. Cada URL contiene el texto traducido en el HTML; funciona e indexa sin JavaScript. Los archivos de `ca/` y `en/` son generados: editar los HTML españoles y `assets/translations.js`, después ejecutar `npm run build`.
+- El idioma se determina por la URL. Los enlaces antiguos con `?lang=` redirigen a la URL correspondiente. Los enlaces de idioma sin JavaScript siguen disponibles.
+- `robots.txt` permite indexación. Se incluye canonical relativo y datos estructurados del negocio con dirección y teléfono ya presentes en la web. No se han inventado horarios, razón social ni datos fiscales.
+- Cuando el cliente confirme el dominio, ejecutar `SITE_URL=https://DOMINIO-CONFIRMADO npm run build` (en PowerShell: `$env:SITE_URL='https://DOMINIO-CONFIRMADO'; npm run build`). Esto genera `sitemap.xml`, canonical absolutos, hreflang y metadatos sociales con URLs absolutas. **No ejecutar el ejemplo literalmente** ni publicar URLs de un dominio sin confirmar.
+- El mapa de Google no hace ninguna petición hasta pulsar «Cargar mapa de Google».
+- El vídeo se comprime a 540 px de ancho y 24 fps, sin audio y con faststart. En móvil, ahorro de datos o movimiento reducido, se conserva el póster y la reproducción es manual. Incluye botón de pausa; se pausa al ocultar la pestaña.
+- Se han añadido dimensiones de imagen, enlace para saltar al contenido, nombres accesibles en enlaces sociales y mejoras de contraste.
+- `_headers.example` es una plantilla de caché y cabeceras para Cloudflare Pages/Netlify. **No está activada:** falta confirmar alojamiento y adaptar su configuración. La compresión Brotli/gzip se configura en el servidor.
+- Permanecen pendientes los documentos legales, los datos del titular, horarios confirmados, condiciones de anticipo/cancelación y el dominio/alojamiento. Las rutas legales originales siguen pendientes de contenido real.
+
+Comprobaciones: `npm test` verifica navegación, idiomas, reservas y móvil; `npm run test:production` comprueba HTML traducido sin JavaScript, carga diferida de terceros, preferencias de movimiento y accesibilidad automática WCAG A/AA. Una auditoría automática no sustituye una revisión manual con tecnologías de asistencia.

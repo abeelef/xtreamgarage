@@ -250,7 +250,13 @@ window.translations = {
     "Presupuesto personalizado": "Pressupost personalitzat",
     "El precio depende del vehículo, la superficie y el vinilo elegido.": "El preu depèn del vehicle, la superfície i el vinil escollit.",
     "Personaliza el aspecto de tu vehículo con vinilo. Consúltanos el acabado y las zonas que quieres cambiar; valoramos cada proyecto para preparar un presupuesto a medida.": "Personalitza l’aspecte del teu vehicle amb vinil. Consulta’ns l’acabat i les zones que vols canviar; valorem cada projecte per preparar un pressupost a mida.",
-    "Vinilado | Xtream Detailing · Igualada": "Vinilat | Xtream Detailing · Igualada"
+    "Vinilado | Xtream Detailing · Igualada": "Vinilat | Xtream Detailing · Igualada",
+    "Saltar al contenido": "Saltar al contingut",
+    "Cargar mapa de Google": "Carregar mapa de Google",
+    "Al cargar el mapa se establece una conexión con Google.": "En carregar el mapa s’estableix una connexió amb Google.",
+    "Ubicación del taller": "Ubicació del taller",
+    "Pausar vídeo": "Pausar vídeo",
+    "Reproducir vídeo": "Reproduir vídeo"
   },
   "en": {
     "Abrir menú": "Open menu",
@@ -505,6 +511,12 @@ window.translations = {
     "Presupuesto personalizado": "Custom quote",
     "El precio depende del vehículo, la superficie y el vinilo elegido.": "The price depends on the vehicle, coverage and chosen vinyl.",
     "Personaliza el aspecto de tu vehículo con vinilo. Consúltanos el acabado y las zonas que quieres cambiar; valoramos cada proyecto para preparar un presupuesto a medida.": "Personalise your vehicle with vinyl. Tell us your preferred finish and the areas you want to change; we assess each project to prepare a tailored quote.",
-    "Vinilado | Xtream Detailing · Igualada": "Vinyl wrapping | Xtream Detailing · Igualada"
+    "Vinilado | Xtream Detailing · Igualada": "Vinyl wrapping | Xtream Detailing · Igualada",
+    "Saltar al contenido": "Skip to content",
+    "Cargar mapa de Google": "Load Google map",
+    "Al cargar el mapa se establece una conexión con Google.": "Loading the map connects to Google.",
+    "Ubicación del taller": "Workshop location",
+    "Pausar vídeo": "Pause video",
+    "Reproducir vídeo": "Play video"
   }
 };

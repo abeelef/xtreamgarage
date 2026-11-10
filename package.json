@@ -3,9 +3,14 @@
   "private": true,
   "scripts": {
     "test": "node tests/site.cjs",
-    "build:css": "tailwindcss -i assets/tailwind.css -o assets/utilities.css --minify"
+    "build:css": "tailwindcss -i assets/tailwind.css -o assets/utilities.css --minify",
+    "build:locales": "node scripts/build-locales.cjs",
+    "build": "npm run build:locales && npm run build:css",
+    "test:production": "node tests/production.cjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "cheerio": "^1.2.0",
     "playwright": "1.65.0",
     "tailwindcss": "^3.4.17"
   }
