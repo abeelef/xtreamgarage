@@ -1,6 +1,6 @@
 # Xtream Detailing
 
-Web estática: abrir `index.html` mediante un servidor local o publicar los archivos en el alojamiento actual. No necesita compilación.
+Web estática: abrir `index.html` mediante un servidor local o publicar los archivos en el alojamiento actual. Los archivos generados se pueden servir directamente; después de editar HTML, traducciones o estilos, ejecutar `npm ci` y `npm run build`.
 
 ```sh
 python -m http.server 8000
@@ -9,7 +9,7 @@ python -m http.server 8000
 ## Páginas
 
 - `index.html`: presentación, antes/después, marcas, equipo y opiniones.
-- `ppf.html`, `pulido.html`, `ceramico.html`, `tintado.html`.
+- `ppf.html`, `pulido.html`, `ceramico.html`, `tintado.html`, `vinilado.html`.
 - `detailing-exterior.html`, `detailing-interior-intermedio.html`, `detailing-interior-completo.html`, `limpieza-motor.html`.
 - `galeria.html`: galería con ampliación de fotos.
 
@@ -37,8 +37,6 @@ Todas deben ser WebP. No es necesario volver a aportar los archivos del inventar
 
 | Ruta exacta | Contenido |
 |---|---|
-| `img/antesdespues/antesPulido.webp` | Pintura antes del pulido |
-| `img/antesdespues/despuesPulido.webp` | La misma pintura después |
 | `img/antesdespues/antesVinilo.webp` | Vehículo antes de vinilar |
 | `img/antesdespues/despuesVinilo.webp` | El mismo vehículo vinilado |
 | `img/vinilado-1.webp` | Foto principal de un trabajo de vinilado |
@@ -49,9 +47,28 @@ Todas deben ser WebP. No es necesario volver a aportar los archivos del inventar
 
 Recomendación: fotos de 1200–1600 px, mismo encuadre en comparadores; logotipos con transparencia. Las fotos opcionales se muestran automáticamente al subirlas. Completar los nombres reales de las marcas en los atributos alt cuando estén disponibles. Vinilado se ofrece con presupuesto personalizado, sin inventar tarifas.
 
+## Selección incorporada desde Drive
+
+Carpeta de origen: [Fotos Web](https://drive.google.com/drive/folders/1aCsxbyXWM0MVhen3CGmJaQ4jqIBDxqm0). Se han conservado sin cambios todos los archivos de imagen anteriores y el logo transparente actual.
+
+| Archivo incorporado | Original en «Antes y después» | Uso |
+|---|---|---|
+| `img/antesdespues/antesPulido.webp` | `IMG20260604140726.jpg` | Comparador de pulido: marcas en la pintura |
+| `img/antesdespues/despuesPulido.webp` | `IMG20260604142249.jpg` | Comparador de pulido: acabado posterior |
+| `img/galeria/interior-bmw-salpicadero.webp` | `IMG20260716194726.jpg` | Nueva foto ampliable de interior BMW |
+| `img/galeria/interior-mercedes.webp` | `IMG20260828160156.jpg` | Nueva foto ampliable de interior Mercedes |
+
+Estas cuatro fotos pasan de 25,44 MB de originales a 0,55 MB en conjunto: WebP calidad 83, lado máximo 1600 px, orientación EXIF aplicada y sin metadatos. No se han retocado los resultados del trabajo. Las tomas del comparador corresponden a la misma zona, con una pequeña diferencia de encuadre; para una alineación perfecta harían falta tomas con cámara fija.
+
+Siguen pendientes las **cuatro fotos de vinilado y los tres logos de marcas** de la tabla anterior. No se ha identificado material inequívoco para esos huecos en la selección revisada; no usar fotos de PPF como si fueran vinilado. Tampoco reutilizar los logos antiguos de «IMAGEN CORPORATIVA». No hace falta enviar toda la biblioteca de nuevo: basta añadir esos siete archivos, o identificar sus originales dentro de Drive.
+
 ## Inventario de imágenes existentes
 
 - `foto-equipo.webp`
+- `img/antesdespues/antesPulido.webp`
+- `img/antesdespues/despuesPulido.webp`
+- `img/galeria/interior-bmw-salpicadero.webp`
+- `img/galeria/interior-mercedes.webp`
 - `img/antesdespues/antesInterior.webp`
 - `img/antesdespues/despuesInterior.webp`
 - `img/ceramicoBase1.webp`
@@ -95,7 +112,7 @@ Recomendación: fotos de 1200–1600 px, mismo encuadre en comparadores; logotip
 
 ## Fotos que conviene revisar o sustituir
 
-- `img/limpiezaBasicaBase1.webp` se utiliza en detailing interior completo, pero muestra un lavado exterior. Sustituir por una foto representativa de limpieza interior, conservando el nombre, o actualizar su referencia en esa página.
+- `img/limpiezaBasicaBase1.webp` se utiliza en detailing interior completo, pero muestra un lavado exterior. Se conserva por indicación del propietario de mantener las imágenes existentes; cualquier sustitución queda pendiente de su decisión.
 - La galería conserva sus fotos actuales; no requiere nuevas imágenes para funcionar. Verificar visualmente el orden real de las fotos `antespulidobmw.webp` y `despuespulidobmw.webp` antes de reutilizarlas como comparador: las etiquetas originales no coinciden con los nombres.
 - Los logotipos antiguos `img/logo.webp` y `img/logo_fondo_negro.webp` se conservan como archivo histórico; no son necesarios para la marca visible.
 - El vídeo existente `img/video/video-hero.mp4` se conserva. WebP se aplica a las imágenes, no al vídeo.

@@ -37,7 +37,10 @@ const base = process.env.SITE_URL || 'http://127.0.0.1:8000';
       assert.equal(await page.locator('[data-comparison]').count(),3);
       await page.locator('.comparison-range').first().focus();await page.keyboard.press('ArrowRight');
       assert.equal(await page.locator('.comparison-range').first().inputValue(),'51');
-      assert.equal(await page.locator('.comparison-pending:visible').count(),2);
+      await page.locator('img[data-optional-src*="antesPulido"]').evaluate(img => img.decode());
+      await page.locator('img[data-optional-src*="despuesPulido"]').evaluate(img => img.decode());
+      assert.equal(await page.locator('.comparison-pending:visible').count(),1);
+      assert.equal(await page.locator('.comparison-images:visible').count(),2);
     }
     console.log('Navigation and languages:',name);
   }

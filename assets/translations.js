@@ -256,7 +256,9 @@ window.translations = {
     "Al cargar el mapa se establece una conexión con Google.": "En carregar el mapa s’estableix una connexió amb Google.",
     "Ubicación del taller": "Ubicació del taller",
     "Pausar vídeo": "Pausar vídeo",
-    "Reproducir vídeo": "Reproduir vídeo"
+    "Reproducir vídeo": "Reproduir vídeo",
+    "Salpicadero BMW después del detailing interior": "Tauler de control BMW després del detailing interior",
+    "Interior Mercedes después del detailing": "Interior Mercedes després del detailing"
   },
   "en": {
     "Abrir menú": "Open menu",
@@ -517,6 +519,8 @@ window.translations = {
     "Al cargar el mapa se establece una conexión con Google.": "Loading the map connects to Google.",
     "Ubicación del taller": "Workshop location",
     "Pausar vídeo": "Pause video",
-    "Reproducir vídeo": "Play video"
+    "Reproducir vídeo": "Play video",
+    "Salpicadero BMW después del detailing interior": "BMW dashboard after interior detailing",
+    "Interior Mercedes después del detailing": "Mercedes interior after detailing"
   }
 };
