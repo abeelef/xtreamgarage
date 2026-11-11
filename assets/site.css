@@ -172,3 +172,5 @@
 /* Readable secondary text and contact button contrast on dark backgrounds. */
 .text-gray-500,.text-gray-600{color:#a1a1aa}.bg-emerald-600{background-color:#047857}.bg-emerald-600:hover{background-color:#065f46}
 .tintado-tab span.opacity-80{opacity:1;color:#cbd5e1}.tintado-tab.active-tab span.opacity-80{color:inherit}
+/* Compact visual control with a full touch target and accessible text label. */
+.video-toggle{width:44px;height:44px;padding:0;font-size:0;background:transparent;border:0;display:grid;place-items:center}.video-toggle::after{content:'▶';font-family:Arial,sans-serif;font-size:13px;line-height:30px;width:30px;height:30px;text-align:center;background:#000c;border:1px solid #ffffff80;border-radius:50%}.video-toggle[aria-pressed="true"]::after{content:'Ⅱ';font-size:18px}.video-toggle:hover::after{background:#000;border-color:#efff11}.video-toggle:focus-visible{outline:2px solid #efff11;outline-offset:2px;border-radius:50%}

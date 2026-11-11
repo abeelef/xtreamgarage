@@ -43,6 +43,8 @@ if (backgroundVideo && videoButton) {
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
   const setVideoState = () => {
     videoButton.textContent = window.t(backgroundVideo.paused ? 'Reproducir vídeo' : 'Pausar vídeo');
+    videoButton.setAttribute('aria-label', videoButton.textContent);
+    videoButton.title = videoButton.textContent;
     videoButton.setAttribute('aria-pressed', String(!backgroundVideo.paused));
   };
   const playVideo = async () => {
@@ -52,6 +54,7 @@ if (backgroundVideo && videoButton) {
     }
     try { await backgroundVideo.play(); } catch { setVideoState(); }
   };
+  setVideoState();
   backgroundVideo.addEventListener('play',setVideoState);
   backgroundVideo.addEventListener('pause',setVideoState);
   videoButton.addEventListener('click',() => backgroundVideo.paused ? playVideo() : backgroundVideo.pause());
