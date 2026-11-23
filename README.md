@@ -41,11 +41,8 @@ Todas deben ser WebP. No es necesario volver a aportar los archivos del inventar
 | `img/antesdespues/despuesVinilo.webp` | El mismo vehículo vinilado |
 | `img/vinilado-1.webp` | Foto principal de un trabajo de vinilado |
 | `img/vinilado-2.webp` | Detalle del acabado o aplicación |
-| `img/marcas/marca-1.webp` | Logo transparente de la primera marca nueva |
-| `img/marcas/marca-2.webp` | Logo transparente de la segunda marca nueva |
-| `img/marcas/marca-3.webp` | Logo transparente de la tercera marca nueva |
 
-Recomendación: fotos de 1200–1600 px, mismo encuadre en comparadores; logotipos con transparencia. Las fotos opcionales se muestran automáticamente al subirlas. Completar los nombres reales de las marcas en los atributos alt cuando estén disponibles. Vinilado se ofrece con presupuesto personalizado, sin inventar tarifas.
+Recomendación: fotos de 1200–1600 px, mismo encuadre en comparadores; logotipos con transparencia. Las fotos opcionales se muestran automáticamente al subirlas. Vinilado se ofrece con presupuesto personalizado, sin inventar tarifas.
 
 ## Selección incorporada desde Drive
 
@@ -60,7 +57,7 @@ Carpeta de origen: [Fotos Web](https://drive.google.com/drive/folders/1aCsxbyXWM
 
 Estas cuatro fotos pasan de 25,44 MB de originales a 0,55 MB en conjunto: WebP calidad 83, lado máximo 1600 px, orientación EXIF aplicada y sin metadatos. No se han retocado los resultados del trabajo. Las tomas del comparador corresponden a la misma zona, con una pequeña diferencia de encuadre; para una alineación perfecta harían falta tomas con cámara fija.
 
-Siguen pendientes las **cuatro fotos de vinilado y los tres logos de marcas** de la tabla anterior. No se ha identificado material inequívoco para esos huecos en la selección revisada; no usar fotos de PPF como si fueran vinilado. Tampoco reutilizar los logos antiguos de «IMAGEN CORPORATIVA». No hace falta enviar toda la biblioteca de nuevo: basta añadir esos siete archivos, o identificar sus originales dentro de Drive.
+Siguen pendientes las **cuatro fotos de vinilado** de la tabla anterior. No se ha identificado material inequívoco para esos huecos en la selección revisada; no usar fotos de PPF como si fueran vinilado. Los logos de las tres marcas ya están incorporados.
 
 ## Inventario de imágenes existentes
 
@@ -130,3 +127,28 @@ Siguen pendientes las **cuatro fotos de vinilado y los tres logos de marcas** de
 - Permanecen pendientes los documentos legales, los datos del titular, horarios confirmados, condiciones de anticipo/cancelación y el dominio/alojamiento. Las rutas legales originales siguen pendientes de contenido real.
 
 Comprobaciones: `npm test` verifica navegación, idiomas, reservas y móvil; `npm run test:production` comprueba HTML traducido sin JavaScript, carga diferida de terceros, preferencias de movimiento y accesibilidad automática WCAG A/AA. Una auditoría automática no sustituye una revisión manual con tecnologías de asistencia.
+
+
+## Ampliación visual: marcas, servicios y galería
+
+Los logos se sirven localmente y sus atributos `alt` identifican la marca. Fuentes oficiales:
+
+- `img/marcas/system-x.webp`: [System X](https://systemx.com), recurso `https://systemx.com/cdn/shop/files/SystemX_logo2x.webp?v=1765381175`.
+- `img/marcas/ultracoat.svg`: [Ultracoat](https://ultracoat.eu), recurso `https://ultracoat.eu/cdn/shop/files/Logo_UltraCoat_White.svg?v=1770217853`. Se conserva SVG por ser vectorial y ligero.
+- `img/marcas/stek.webp`: [STEK Automotive](https://stekautomotive.com), recurso `https://d31muh84oxzu1x.cloudfront.net/0fafa56b-73e9-49b2-b588-691d2e4e4cab.webp`.
+- Labocosmetica conserva su archivo actual. La presencia de marcas describe los productos utilizados, no una certificación o afiliación.
+
+Nuevas fotos seleccionadas de la misma carpeta Drive, convertidas a WebP con lado máximo de 1600 px:
+
+| Archivo | Original | Uso |
+|---|---|---|
+| `img/galeria/audi-interior-azul.webp` | `Audi RS Q3 AZUL/IMG20260513164510.jpg` | Galería y segunda foto de detailing interior intermedio |
+| `img/galeria/audi-salpicadero-azul.webp` | `Audi RS Q3 AZUL/IMG20260513164211.jpg` | Galería |
+| `img/galeria/ppf-consola.webp` | `PPF/IMG20260714183302.jpg` | Galería |
+| `img/ppf-detalle.webp` | `PPF/IMG20260713153223.jpg` | Segunda foto de PPF |
+| `img/pulido-trabajo.webp` | `Pulido/Corrección/IMG_20260902_00422013.jpeg` | Segunda foto de pulido |
+| `img/tintado-trasera.webp` | `Antes y después/IMG20260804175421.jpg` | Segunda foto de tintado |
+
+Las fotografías existentes se conservan. PPF, pulido y tintado muestran ahora dos fotos además del fondo original. La galería suma exactamente tres fotos.
+
+Las cuatro imágenes de `img/plantillas_coches/{pequeno,compacto,sedan,4x4}.webp` se han sustituido por ilustraciones realistas generadas, con transparencia, de 760 × 360 px. Son ejemplos orientativos de tamaño, no fotos de trabajos ni modelos garantizados. Se ha eliminado el filtro CSS que las convertía en siluetas blancas. `furgoneta.webp` queda archivado sin cambios.

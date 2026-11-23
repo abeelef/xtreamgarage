@@ -258,7 +258,13 @@ window.translations = {
     "Pausar vídeo": "Pausar vídeo",
     "Reproducir vídeo": "Reproduir vídeo",
     "Salpicadero BMW después del detailing interior": "Tauler de control BMW després del detailing interior",
-    "Interior Mercedes después del detailing": "Interior Mercedes després del detailing"
+    "Interior Mercedes después del detailing": "Interior Mercedes després del detailing",
+    "Detalle de protección PPF interior": "Detall de protecció PPF interior",
+    "Pulido de pintura en el taller": "Polit de pintura al taller",
+    "Acabado del tintado de lunas traseras": "Acabat del tintat dels vidres posteriors",
+    "Detalle del interior azul de Audi": "Detall de l’interior blau d’Audi",
+    "Salpicadero y acabados interiores de Audi": "Tauler de control i acabats interiors d’Audi",
+    "Protección PPF de la consola interior": "Protecció PPF de la consola interior"
   },
   "en": {
     "Abrir menú": "Open menu",
@@ -521,6 +527,12 @@ window.translations = {
     "Pausar vídeo": "Pause video",
     "Reproducir vídeo": "Play video",
     "Salpicadero BMW después del detailing interior": "BMW dashboard after interior detailing",
-    "Interior Mercedes después del detailing": "Mercedes interior after detailing"
+    "Interior Mercedes después del detailing": "Mercedes interior after detailing",
+    "Detalle de protección PPF interior": "Interior PPF protection detail",
+    "Pulido de pintura en el taller": "Paint polishing in the workshop",
+    "Acabado del tintado de lunas traseras": "Rear window tint finish",
+    "Detalle del interior azul de Audi": "Audi blue interior detail",
+    "Salpicadero y acabados interiores de Audi": "Audi dashboard and interior trim",
+    "Protección PPF de la consola interior": "Interior console PPF protection"
   }
 };

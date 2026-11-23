@@ -89,14 +89,13 @@ const base = process.env.SITE_URL || 'http://127.0.0.1:8000';
   console.log('All gallery images open: passed');
   await page.route('**/img/antesdespues/*Pulido.webp',r=>r.fulfill({path:path.resolve('img/antesdespues/antesInterior.webp'),contentType:'image/jpeg'}));
   await page.route('**/img/antesdespues/*Vinilo.webp',r=>r.fulfill({path:path.resolve('img/antesdespues/despuesInterior.webp'),contentType:'image/jpeg'}));
-  await page.route('**/img/marcas/*.webp',r=>r.fulfill({path:path.resolve('img/labocosmetica-logo.webp'),contentType:'image/webp'}));
   await page.goto(`${base}/index.html`);
   await page.waitForFunction(()=>[...document.querySelectorAll('.comparison-images')].every(el=>!el.hidden));
-  assert.equal(await page.locator('img[data-optional-src][src*="marcas/"]:visible').count(),3);
+  assert.equal(await page.locator('.product-brand-logo:visible').count(),4);
+  await page.locator('.product-brand-logo').evaluateAll(imgs => Promise.all(imgs.map(img => img.decode())));
   console.log('Future asset uploads activate all comparators and brands: passed');
   await page.unroute('**/img/antesdespues/*Pulido.webp');
   await page.unroute('**/img/antesdespues/*Vinilo.webp');
-  await page.unroute('**/img/marcas/*.webp');
   await page.setViewportSize({width:390,height:844});
   for(const name of pages) {
     await page.goto(`${base}/en/${name}.html`,{waitUntil:'domcontentloaded'});
